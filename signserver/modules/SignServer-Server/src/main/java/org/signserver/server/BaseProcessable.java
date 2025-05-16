@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 import org.apache.log4j.Logger;
 import org.bouncycastle.jce.ECKeyUtil;
@@ -169,7 +169,7 @@ public abstract class BaseProcessable extends BaseWorker implements IProcessable
     private String getAliasAndLog(final int purpose, final Request request,
                             final RequestContext context)
             throws IllegalRequestException, CryptoTokenOfflineException, SignServerException {
-        final String alias = aliasSelector.getAlias(purpose, this, request, context);
+        final String alias = getAlias(purpose, request, context); 
 
         if (context != null) {
             LogMap.getInstance(context).put(IWorkerLogger.LOG_KEYALIAS, alias);

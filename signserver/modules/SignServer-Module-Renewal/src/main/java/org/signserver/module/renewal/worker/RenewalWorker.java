@@ -39,7 +39,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
 import javax.net.ssl.*;
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import javax.xml.namespace.QName;
 import org.apache.log4j.Logger;
 import org.bouncycastle.asn1.x509.BasicConstraints;
@@ -297,8 +297,8 @@ public class RenewalWorker extends BaseSigner {
             }
             
             // Get the worker config
-            final WorkerConfig workerConfig
-                    = workerSession.getCurrentWorkerConfig(reneweeId);
+            final Properties workerConfig
+                    = workerSession.exportWorkerConfig(reneweeId);
             final String sigAlg = workerConfig.getProperty(
                     PROPERTY_SIGNATUREALGORITHM);
             final String subjectDN = workerConfig.getProperty(

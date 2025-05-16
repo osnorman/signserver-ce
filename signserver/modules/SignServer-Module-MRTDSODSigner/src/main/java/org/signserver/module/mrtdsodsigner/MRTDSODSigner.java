@@ -33,7 +33,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
@@ -425,9 +425,6 @@ public class MRTDSODSigner extends BaseSigner {
             case "EC":
             case "ECDSA":
                 result = "SHA256withECDSA";
-                break;
-            case "DSA":
-                result = "SHA256withDSA";
                 break;
             case "Ed25519":
                 result = "Ed25519";

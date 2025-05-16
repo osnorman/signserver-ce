@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.signserver</groupId>
         <artifactId>SignServer-Modules</artifactId>
-        <version>6.3.1.Alpha1-SNAPSHOT</version>
+        <version>7.2.0-Alpha-1-SNAPSHOT</version>
     </parent>
     <artifactId>SignServer-Module-PDFSigner</artifactId>
     <name>SignServer-Module-PDFSigner</name>
@@ -44,7 +44,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>org.signserver.librepdf</groupId>
+            <groupId>com.github.librepdf</groupId>
             <artifactId>openpdf</artifactId>
         </dependency>
     </dependencies>

@@ -26,7 +26,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.time.FastDateFormat;
 import org.apache.log4j.Logger;
@@ -232,6 +232,19 @@ public abstract class BaseSigner extends BaseProcessable implements ISigner {
         return new WorkerStatusInfo(workerId, config.getProperty("NAME"),
                                     "Signer", status, briefEntries, fatalErrors,
                                     completeEntries, config);
+    }
+
+    public boolean requiresTransaction(final IServices services) {
+        try {
+            ICryptoTokenV4 cryptoToken = super.getCryptoToken(services);
+            if (cryptoToken == null) {
+                return false;
+            }
+            return cryptoToken.requiresTransactionForSigning();
+        } catch (Exception e) {
+            LOG.warn("Unable to determine whether a worker requires a transaction. Defaulting to False.", e);
+            return false;
+        }
     }
 
     @Override

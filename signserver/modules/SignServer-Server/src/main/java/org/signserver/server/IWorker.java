@@ -13,7 +13,7 @@
 package org.signserver.server;
 
 import java.util.List;
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import org.signserver.common.WorkerConfig;
 import org.signserver.common.WorkerStatusInfo;
 import org.signserver.common.WorkerType;
@@ -68,4 +68,11 @@ public interface IWorker {
      * @return a WorkerStatus object.
      */
     WorkerStatusInfo getStatus(final List<String> additionalFatalErrors, final IServices services);
+
+    /**
+     * If worker requires a database transaction when using this crypto token.
+     *
+     * @return True or false
+     */
+    boolean requiresTransaction(final IServices services);
 }

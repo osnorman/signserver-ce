@@ -23,14 +23,14 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.*;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
-import javax.ejb.EJB;
-import javax.ejb.EJBException;
-import javax.ejb.SessionContext;
-import javax.ejb.Stateless;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.Resource;
+import jakarta.ejb.EJB;
+import jakarta.ejb.EJBException;
+import jakarta.ejb.SessionContext;
+import jakarta.ejb.Stateless;
 import javax.naming.NamingException;
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 
 import org.apache.log4j.Logger;
 import org.cesecore.audit.AuditLogEntry;
@@ -464,7 +464,7 @@ public class WorkerSessionBean implements WorkerSessionLocal, WorkerSessionRemot
                     final long validity = Long.parseLong(validityValue);
                     params.put(CryptoTokenHelper.PROPERTY_SELFSIGNED_VALIDITY, validity);
                 } catch (NumberFormatException ex) {
-                    throw new IllegalArgumentException("Incorrect nummeric value for property " + CryptoTokenHelper.PROPERTY_SELFSIGNED_VALIDITY + ": " + ex.getLocalizedMessage());
+                    throw new IllegalArgumentException("Incorrect numeric value for property " + CryptoTokenHelper.PROPERTY_SELFSIGNED_VALIDITY + ": " + ex.getLocalizedMessage());
                 }
             }
 
@@ -587,7 +587,8 @@ public class WorkerSessionBean implements WorkerSessionLocal, WorkerSessionRemot
      * @see org.signserver.ejb.WorkerSession#getCurrentSignerConfig(int)
      */
     @Override
-    public WorkerConfig getCurrentWorkerConfig(int signerId) {
+    public WorkerConfig getCurrentWorkerConfig(final AdminInfo adminInfo,
+                                               final int signerId) {
         final WorkerConfig config = new WorkerConfig();
         final Properties workerProps =
                 getWorkerConfig(signerId).getProperties();
@@ -599,7 +600,9 @@ public class WorkerSessionBean implements WorkerSessionLocal, WorkerSessionRemot
 
     @Override
     public Properties exportWorkerConfig(final int signerId) {
-        final WorkerConfig config = getCurrentWorkerConfig(signerId);
+        final WorkerConfig config =
+                getCurrentWorkerConfig(new AdminInfo("CLI user", null, null),
+                                       signerId);
         final Properties allProps = config.getProperties();
         final Properties exportedProps = new Properties();
         

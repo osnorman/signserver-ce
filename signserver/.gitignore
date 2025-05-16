@@ -32,6 +32,9 @@ hs_err_pid*
 # NetBeans IDE
 */nbproject/project.properties
 
+# VSCode IDE
+.vscode/
+
 # Mac
 .DS_Store
 # Windows
@@ -103,6 +106,8 @@ dist-*/
 /doc/sample-configs/qos_*.properties
 /doc/sample-configs/ades.properties
 /doc/sample-configs/fortanix-*
+
+/res/test/test-zone-file-server-side-signer.properties
 
 /indir*/
 /jarsigner-test-files/

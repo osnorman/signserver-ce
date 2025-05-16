@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="_scroll_external/attachments/e415105eb31a/ssdocs">
 
     <!-- Primary Meta Tags -->
-    <meta name="exp-export-timestamp" content="2024-04-17T13:23:06.481+0000">
+    <meta name="exp-export-timestamp" content="2024-11-07T13:05:10.352+0000">
     <meta name="exp-page-id" content="371000022">
     <meta name="exp-page-title" content="SignServer Dispatchers">
     <meta name="exp-page-version" content="1">
@@ -24,6 +24,19 @@
     <meta name="exp-space-key" content="SSDOCS">
     <meta name="exp-space-title" content="SignServer Documentation">
 
+    <!-- Additional Meta Tags -->
+    <meta name="exp-document-id" content="371111034">
+    <meta name="exp-document-title" content="SignServer Documentation">
+    <meta name="exp-version-status" content="in-progress">
+    <meta name="exp-version-id" content="8a3e757d15e64586aa644eaf0980f27a">
+    <meta name="exp-version-name" content="Working version">
+    <meta name="exp-version-description" content="">
+    <meta name="exp-version-date" content="2024-02-17T13:18:25Z">
+    <meta name="exp-variant-id" content="">
+    <meta name="exp-variant-name" content="">
+    <meta name="exp-variant-description" content="">
+    <meta name="exp-language-code" content="">
+    <meta name="exp-language-name" content="">
 
     <link rel="stylesheet" href="css/app.css">
 
@@ -80,7 +93,7 @@
 
 <header class="home-icon-container flex justify-between header hc-header-background-color hc-header-background-color ">
     <div class="header__navigation--logo">
-        <a href="SignServer_Manual.html">
+        <a href="SignServer_Documentation.html">
             <img src="_scroll_external/attachments/e415105eb31a/ssdocs" alt="SignServer Documentation" title="SignServer Documentation">
         </a>
     </div>
@@ -126,7 +139,7 @@
     <div class="breadcrumbs-wrapper">
         <ol class="breadcrumbs breadcrumbs--fit-content js-loading js-loading__stacked js-loading__stacked--breadcrumb">
                 <li class="js-hide-until-loaded">
-                    <a href="SignServer_Manual.html" rel="prev" target="_self" class="js-breadcrumbs-truncate">SignServer Manual</a>
+                    <a href="SignServer_Documentation.html" rel="prev" target="_self" class="js-breadcrumbs-truncate">SignServer Documentation</a>
                 </li>
                 <li class="js-hide-until-loaded">
                     <a href="SignServer_Reference.html" rel="prev" target="_self" class="js-breadcrumbs-truncate">SignServer Reference</a>
@@ -142,12 +155,12 @@
     </div>
 </nav>
                     <!-- CSS class article__heading is deprecated and will be removed in the future -->
-                    <h1 class="cell vp-article__heading article__heading js-loading js-loading__stacked js-loading__stacked--heading scroll-h1 scroll-original-h1 scroll-relative-h1 scroll-custom-section-heading scroll-document-section-heading" role="heading" data-scroll-heading-rank="1" data-scroll-original-heading-rank="1" data-scroll-relative-heading-rank="1" id="no-src_generated-id-697c625a44f605c7af0aae8a22fae0fb0dbb824b6e2e6970624bda28bc269647"><span class="js-hide-until-loaded">SignServer Dispatchers</span></h1>
+                    <h1 class="cell vp-article__heading article__heading js-loading js-loading__stacked js-loading__stacked--heading scroll-h1 scroll-original-h1 scroll-relative-h1 scroll-custom-section-heading scroll-document-section-heading" role="heading" data-scroll-heading-rank="1" data-scroll-original-heading-rank="1" data-scroll-relative-heading-rank="1" id="no-src_generated-id-ce3ad461c08a4349836b240ff3cf908024d94f6b836cb60f99a892af5d187258"><span class="js-hide-until-loaded">SignServer Dispatchers</span></h1>
                 </header>
                 <section class="page" id="content" role="main">
                     <div id="vp-js-desktop__navigation__skip-to-navigation-target"></div>
                     <div id="main-content" class="wiki-content article__content js-tocBot-content js-hide-until-loaded">
-                        <p><style>[data-colorid=p8beaa1m51]{color:#333333} html[data-color-mode=dark] [data-colorid=p8beaa1m51]{color:#cccccc}[data-colorid=z1ch0lff25]{color:#333333} html[data-color-mode=dark] [data-colorid=z1ch0lff25]{color:#cccccc}[data-colorid=myzaufgpvp]{color:#333333} html[data-color-mode=dark] [data-colorid=myzaufgpvp]{color:#cccccc}[data-colorid=t257mx1aow]{color:#333333} html[data-color-mode=dark] [data-colorid=t257mx1aow]{color:#cccccc}</style><span data-colorid="myzaufgpvp">A Dispatcher does not perform any processing (i.e. signing) of its own but instead forwards the request to another worker. </span></p><p><span data-colorid="t257mx1aow">Dispatchers forward the request to the first available worker that has a valid certificate (<a class="external-link scroll-external-link" href="http://confluence.primekey.com/display/SIGNDS/.FirstActiveDispatcher+v4.1.0" rel="nofollow" shape="rect" data-scroll-link-type="default" data-scroll-link-target="http://confluence.primekey.com/display/SIGNDS/.FirstActiveDispatcher+v4.1.0" data-scroll-link-local="false">FirstActiveDispatcher</a>), or forward a time-stamp request depending on the requested time-stamp policy (<a class="external-link scroll-external-link" href="http://confluence.primekey.com/display/SIGNDS/.RequestedPolicyDispatcher+v5.1.0" rel="nofollow" shape="rect" data-scroll-link-type="default" data-scroll-link-target="http://confluence.primekey.com/display/SIGNDS/.RequestedPolicyDispatcher+v5.1.0" data-scroll-link-local="false">RequestedPolicyDispatcher</a>). <br clear="none"></span></p><p><span data-colorid="z1ch0lff25">The following lists available SignServer Dispatchers:</span></p><p><span data-colorid="p8beaa1m51"></span></p><ul class="childpages-macro"><li><a href="FirstActiveDispatcher.html" data-linked-resource-id="371000026" data-linked-resource-version="1" data-linked-resource-type="page" data-scroll-target-source-id="371000026" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/371000026/FirstActiveDispatcher" data-scroll-link-target-source-id="371000026">FirstActiveDispatcher</a></li><li><a href="RequestedPolicyDispatcher.html" data-linked-resource-id="371000030" data-linked-resource-version="1" data-linked-resource-type="page" data-scroll-target-source-id="371000030" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/371000030/RequestedPolicyDispatcher" data-scroll-link-target-source-id="371000030">RequestedPolicyDispatcher</a></li><li><a href="UserMappedDispatcher.html" data-linked-resource-id="371000034" data-linked-resource-version="1" data-linked-resource-type="page" data-scroll-target-source-id="371000034" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/371000034/UserMappedDispatcher" data-scroll-link-target-source-id="371000034">UserMappedDispatcher</a></li></ul>
+                        <p><style>[data-colorid=ovz334mm6b]{color:#333333} html[data-color-mode=dark] [data-colorid=ovz334mm6b]{color:#cccccc}[data-colorid=dv47d8mrxh]{color:#333333} html[data-color-mode=dark] [data-colorid=dv47d8mrxh]{color:#cccccc}[data-colorid=bgd02mdphj]{color:#333333} html[data-color-mode=dark] [data-colorid=bgd02mdphj]{color:#cccccc}[data-colorid=oq6vyt0izx]{color:#333333} html[data-color-mode=dark] [data-colorid=oq6vyt0izx]{color:#cccccc}</style><span data-colorid="dv47d8mrxh">A Dispatcher does not perform any processing (i.e. signing) of its own but instead forwards the request to another worker. </span></p><p><span data-colorid="ovz334mm6b">Dispatchers forward the request to the first available worker that has a valid certificate (<a class="external-link scroll-external-link" href="http://confluence.primekey.com/display/SIGNDS/.FirstActiveDispatcher+v4.1.0" rel="nofollow" shape="rect" data-scroll-link-type="default" data-scroll-link-target="http://confluence.primekey.com/display/SIGNDS/.FirstActiveDispatcher+v4.1.0" data-scroll-link-local="false">FirstActiveDispatcher</a>), or forward a time-stamp request depending on the requested time-stamp policy (<a class="external-link scroll-external-link" href="http://confluence.primekey.com/display/SIGNDS/.RequestedPolicyDispatcher+v5.1.0" rel="nofollow" shape="rect" data-scroll-link-type="default" data-scroll-link-target="http://confluence.primekey.com/display/SIGNDS/.RequestedPolicyDispatcher+v5.1.0" data-scroll-link-local="false">RequestedPolicyDispatcher</a>). <br clear="none"></span></p><p><span data-colorid="oq6vyt0izx">The following lists available SignServer Dispatchers:</span></p><p><span data-colorid="bgd02mdphj"></span></p><ul class="childpages-macro"><li><a href="FirstActiveDispatcher.html" data-linked-resource-id="371000026" data-linked-resource-version="1" data-linked-resource-type="page" data-scroll-target-source-id="371000026" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/371000026/FirstActiveDispatcher" data-scroll-link-target-source-id="371000026">FirstActiveDispatcher</a></li><li><a href="RequestedPolicyDispatcher.html" data-linked-resource-id="371000030" data-linked-resource-version="1" data-linked-resource-type="page" data-scroll-target-source-id="371000030" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/371000030/RequestedPolicyDispatcher" data-scroll-link-target-source-id="371000030">RequestedPolicyDispatcher</a></li><li><a href="UserMappedDispatcher.html" data-linked-resource-id="371000034" data-linked-resource-version="1" data-linked-resource-type="page" data-scroll-target-source-id="371000034" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/371000034/UserMappedDispatcher" data-scroll-link-target-source-id="371000034">UserMappedDispatcher</a></li></ul>
 <nav id="ht-post-nav">
         <a href="XAdEs_Validator.html" class="ht-post-nav-prev">
             <svg width="22px" height="22px" viewbox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">

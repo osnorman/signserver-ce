@@ -25,10 +25,12 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
 import java.util.concurrent.ThreadLocalRandom;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
+
+import jakarta.annotation.ManagedBean;
+import jakarta.faces.context.ExternalContext;
+import jakarta.faces.context.FacesContext;
+import jakarta.faces.view.ViewScoped;
+import jakarta.inject.Named;
 import org.apache.commons.lang.StringUtils;
 import org.signserver.common.CryptoTokenOfflineException;
 import org.signserver.server.RenewalUtils;
@@ -48,7 +50,7 @@ import org.signserver.common.AbstractCertReqData;
  * @author Markus Kilås
  * @version $Id$
  */
-@ManagedBean
+@Named
 @ViewScoped
 public class CSRBulkBean extends BulkBean {
 
@@ -397,9 +399,6 @@ public class CSRBulkBean extends BulkBean {
                 AlgorithmTools.SIG_ALGS_RSA.forEach((alg) -> {
                     signatureAlgorithmMenuValues.add(new SelectItem(alg, alg));
                 });
-                AlgorithmTools.SIG_ALGS_DSA.forEach((alg) -> {
-                    signatureAlgorithmMenuValues.add(new SelectItem(alg, alg));
-                });
                 AlgorithmTools.SIG_ALGS_ECDSA.forEach((alg) -> {
                     signatureAlgorithmMenuValues.add(new SelectItem(alg, alg));
                 });
@@ -412,13 +411,13 @@ public class CSRBulkBean extends BulkBean {
                 AlgorithmTools.SIG_ALGS_DSTU4145.forEach((alg) -> {
                     signatureAlgorithmMenuValues.add(new SelectItem(alg, alg));
                 });
-                AlgorithmTools.SIG_ALGS_DILITHIUM.forEach((alg) -> {
+                AlgorithmTools.SIG_ALGS_MLDSA.forEach((alg) -> {
                     signatureAlgorithmMenuValues.add(new SelectItem(alg, alg));
                 });
                 AlgorithmTools.SIG_ALGS_LMS.forEach((alg) -> {
                     signatureAlgorithmMenuValues.add(new SelectItem(alg, alg));
                 });
-                AlgorithmTools.SIG_ALGS_SPHINCSPLUS.forEach((alg) -> {
+                AlgorithmTools.SIG_ALGS_SLHDSA.forEach((alg) -> {
                     signatureAlgorithmMenuValues.add(new SelectItem(alg, alg));
                 });
             }

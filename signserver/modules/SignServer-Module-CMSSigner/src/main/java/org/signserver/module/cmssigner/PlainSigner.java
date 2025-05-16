@@ -27,7 +27,6 @@ import java.security.Signature;
 import java.security.SignatureException;
 import java.security.cert.Certificate;
 import java.security.cert.X509Certificate;
-import java.security.interfaces.DSAPublicKey;
 import java.security.interfaces.ECPublicKey;
 import java.security.spec.MGF1ParameterSpec;
 import java.security.spec.PSSParameterSpec;
@@ -38,7 +37,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import org.apache.log4j.Logger;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.operator.ContentSigner;
@@ -57,6 +56,7 @@ import org.signserver.server.IServices;
 import org.signserver.server.WorkerContext;
 import org.signserver.server.archive.Archivable;
 import org.signserver.server.archive.DefaultArchivable;
+import org.signserver.server.cesecore.certificates.util.AlgorithmTools;
 import org.signserver.server.cryptotokens.ICryptoInstance;
 import org.signserver.server.cryptotokens.ICryptoTokenV4;
 import org.signserver.server.data.impl.UploadUtil;
@@ -246,7 +246,7 @@ public class PlainSigner extends BaseSigner {
             // Private key
             final PrivateKey privKey = crypto.getPrivateKey();
 
-            final String sigAlg = signatureAlgorithm == null ? getDefaultSignatureAlgorithm(cert.getPublicKey()) : signatureAlgorithm;
+            final String sigAlg = signatureAlgorithm == null ? AlgorithmTools.getDefaultSignatureAlgorithm(cert.getPublicKey()) : signatureAlgorithm;
             final String sigAlgUpperCase = sigAlg.toUpperCase(Locale.ENGLISH);
             final byte[] signedbytes;
 
@@ -391,30 +391,6 @@ public class PlainSigner extends BaseSigner {
      */
     private byte[] getModifierBytes(final String clientsideHashAlgorithm) {
         return HASH_ALGORITHM_AND_MODIFIER_MAP.get(clientsideHashAlgorithm);
-    }
-    
-    private String getDefaultSignatureAlgorithm(final PublicKey publicKey) {
-        final String result;
-        switch (publicKey.getAlgorithm()) {
-            case "EC":
-            case "ECDSA":
-                result = "SHA256withECDSA";
-                break;
-            case "DSA":
-                result = "SHA256withDSA";
-                break;
-            case "Ed25519":
-                result = "Ed25519";
-                break;
-            case "Ed448":
-                result = "Ed448";
-                break;
-            case "RSA":
-            default:
-                result = "SHA256withRSA";
-        }
-
-        return result;
     }
 
     @Override

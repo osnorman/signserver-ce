@@ -12,18 +12,31 @@
     <link rel="shortcut icon" href="_scroll_external/attachments/e415105eb31a/ssdocs">
 
     <!-- Primary Meta Tags -->
-    <meta name="exp-export-timestamp" content="2024-04-17T13:22:17.224+0000">
+    <meta name="exp-export-timestamp" content="2024-11-07T13:04:41.477+0000">
     <meta name="exp-page-id" content="370999417">
     <meta name="exp-page-title" content="SignServer without Database">
-    <meta name="exp-page-version" content="1">
+    <meta name="exp-page-version" content="4">
     <meta name="exp-page-scroll-page-id" content="1aff094e6ad21eb79039f4bf7e588bec">
     <meta name="exp-page-created" content="2023-05-24T14:20:46.000+0000">
-    <meta name="exp-page-last-modified" content="2023-05-24T14:23:10.000+0000">
+    <meta name="exp-page-last-modified" content="2024-09-26T14:47:12.043+0000">
     <meta name="exp-page-labels" content="signserver-software-only">
     <meta name="exp-page-context-keys" content="">
     <meta name="exp-space-key" content="SSDOCS">
     <meta name="exp-space-title" content="SignServer Documentation">
 
+    <!-- Additional Meta Tags -->
+    <meta name="exp-document-id" content="371111034">
+    <meta name="exp-document-title" content="SignServer Documentation">
+    <meta name="exp-version-status" content="in-progress">
+    <meta name="exp-version-id" content="8a3e757d15e64586aa644eaf0980f27a">
+    <meta name="exp-version-name" content="Working version">
+    <meta name="exp-version-description" content="">
+    <meta name="exp-version-date" content="2024-02-17T13:18:25Z">
+    <meta name="exp-variant-id" content="">
+    <meta name="exp-variant-name" content="">
+    <meta name="exp-variant-description" content="">
+    <meta name="exp-language-code" content="">
+    <meta name="exp-language-name" content="">
 
     <link rel="stylesheet" href="css/app.css">
 
@@ -72,7 +85,7 @@
 
 <meta name="generator" content="Scroll HTML Exporter / K15t GmbH"></head>
     <!-- pageid attribute is deprecated - please use data-vp-page-id on html element instead -->
-    <body id="SignServerwithoutDatabase-top" pageid="370999417" class="flex flex-col" data-confluence-editor-version="v1">
+    <body id="SignServerwithoutDatabase-top" pageid="370999417" class="flex flex-col" data-confluence-editor-version="v2">
         <div id="vp-js-desktop__navigation__skip-to-navigation-link"></div>
 
 
@@ -80,7 +93,7 @@
 
 <header class="home-icon-container flex justify-between header hc-header-background-color hc-header-background-color ">
     <div class="header__navigation--logo">
-        <a href="SignServer_Manual.html">
+        <a href="SignServer_Documentation.html">
             <img src="_scroll_external/attachments/e415105eb31a/ssdocs" alt="SignServer Documentation" title="SignServer Documentation">
         </a>
     </div>
@@ -126,7 +139,7 @@
     <div class="breadcrumbs-wrapper">
         <ol class="breadcrumbs breadcrumbs--fit-content js-loading js-loading__stacked js-loading__stacked--breadcrumb">
                 <li class="js-hide-until-loaded">
-                    <a href="SignServer_Manual.html" rel="prev" target="_self" class="js-breadcrumbs-truncate">SignServer Manual</a>
+                    <a href="SignServer_Documentation.html" rel="prev" target="_self" class="js-breadcrumbs-truncate">SignServer Documentation</a>
                 </li>
                 <li class="js-hide-until-loaded">
                     <a href="SignServer_Installation.html" rel="prev" target="_self" class="js-breadcrumbs-truncate">SignServer Installation</a>
@@ -142,12 +155,12 @@
     </div>
 </nav>
                     <!-- CSS class article__heading is deprecated and will be removed in the future -->
-                    <h1 class="cell vp-article__heading article__heading js-loading js-loading__stacked js-loading__stacked--heading scroll-h1 scroll-original-h1 scroll-relative-h1 scroll-custom-section-heading scroll-document-section-heading" role="heading" data-scroll-heading-rank="1" data-scroll-original-heading-rank="1" data-scroll-relative-heading-rank="1" id="no-src_generated-id-f1cac528f1f429f14e0132b6b9230806a9420542032e78d12af404f48fa96f0c"><span class="js-hide-until-loaded">SignServer without Database</span></h1>
+                    <h1 class="cell vp-article__heading article__heading js-loading js-loading__stacked js-loading__stacked--heading scroll-h1 scroll-original-h1 scroll-relative-h1 scroll-custom-section-heading scroll-document-section-heading" role="heading" data-scroll-heading-rank="1" data-scroll-original-heading-rank="1" data-scroll-relative-heading-rank="1" id="no-src_generated-id-e542b2ee769b8544c566888a8ef0754f286bbc97a8a3067eda3e03e7bd7a370a"><span class="js-hide-until-loaded">SignServer without Database</span></h1>
                 </header>
                 <section class="page" id="content" role="main">
                     <div id="vp-js-desktop__navigation__skip-to-navigation-target"></div>
                     <div id="main-content" class="wiki-content article__content js-tocBot-content js-hide-until-loaded">
-                        <p id="SignServerwithoutDatabase-SignServer_without_DB" class="scroll-custom-section-heading scroll-document-section-heading scroll-removed-heading"><span class="confluence-anchor-link" id="SignServerwithoutDatabase-SignServer_without_DB"></span><span class="confluence-anchor-link" id="SignServer_without_DB"></span></p><p>It is possible to operate SignServer without a database management system and instead rely on SignServer to manage persistence using local files.</p><p>Note that all features of SignServer are not supported without having a database and the performance and scalability characteristics might differ. Features not available without database:</p><ul><li>Audit logging to database / database protection</li><li>Archiving to database</li><li>Key wrapping</li></ul><p>To increase throughput it is recommended to disable the key usage counter, as every request would otherwise have to lock and update that file. For more information, see the property DISABLEKEYUSAGECOUNTER in the section <a href="Limiting_the_number_of_signatures.html" data-linked-resource-id="370999751" data-linked-resource-version="1" data-linked-resource-type="page" data-scroll-target-source-id="370999751" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/370999751/Limiting+the+number+of+signatures" data-scroll-link-target-source-id="370999751">Limiting the number of signatures</a>.</p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Upgrading to a later version should generally be handled automatically during the first startup. Review&nbsp;<a href="Upgrade_SignServer.html" data-linked-resource-id="370999421" data-linked-resource-version="1" data-linked-resource-type="page" data-scroll-target-source-id="370999421" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/370999421/Upgrade+SignServer" data-scroll-link-target-source-id="370999421">Upgrade SignServer</a> and&nbsp;<a class="external-link scroll-external-link" href="https://doc.primekey.com/x/jAFu" rel="nofollow" shape="rect" data-scroll-link-type="default" data-scroll-link-target="https://doc.primekey.com/x/jAFu" data-scroll-link-local="false">SignServer Upgrade Notes</a> and create a backup of the file-based database files before attempting to run a later version.</p></div></div><h2 id="SignServerwithoutDatabase-Configuration" data-scroll-heading-rank="2" data-scroll-original-heading-rank="2" data-scroll-relative-heading-rank="2" class="scroll-h2 scroll-original-h2 scroll-relative-h2 scroll-custom-section-heading scroll-document-section-heading">Configuration</h2><p>For all steps included in installing SignServer, see <a href="Install_SignServer.html" data-linked-resource-id="370999413" data-linked-resource-version="1" data-linked-resource-type="page" data-scroll-target-source-id="370999413" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/370999413/Install+SignServer" data-scroll-link-target-source-id="370999413">Install SignServer</a>.</p><p>The following section highlights configuring deployment properties when running SignServer without a database.</p><h3 id="SignServerwithoutDatabase-DeploymentProperties" data-scroll-heading-rank="3" data-scroll-original-heading-rank="3" data-scroll-relative-heading-rank="3" class="scroll-h3 scroll-original-h3 scroll-relative-h3 scroll-custom-section-heading scroll-document-section-heading">Deployment Properties</h3><p>To run SignServer without a database, set&nbsp;<strong>database.name</strong> to <strong>nodb</strong> in the <code>signserver_deploy.properties </code>file :</p><div class="scroll-code scroll-highlighted-code-block" data-title-type="code" data-theme="defaultnew" style="  counter-reset: scroll-code-numbering 0;"><div class="defaultnew content">
+                        <p id="SignServerwithoutDatabase-SignServer_without_DB" class="scroll-custom-section-heading scroll-document-section-heading scroll-removed-heading"><span class="confluence-anchor-link" id="SignServerwithoutDatabase-SignServer_without_DB"></span><span class="confluence-anchor-link" id="SignServer_without_DB"></span><span class="confluence-anchor-link" id="src-370999417_SignServerwithoutDatabase-"></span></p><p>It is possible to operate SignServer without a database management system and instead rely on SignServer to manage persistence using local files.</p><p>Note that all features of SignServer are not supported without having a database and the performance and scalability characteristics might differ. Features not available without database:</p><ul><li><p>Audit logging to database / database protection</p></li><li><p>Archiving to database</p></li><li><p>Key wrapping</p></li></ul><p>To increase throughput it is recommended to disable the key usage counter, as every request would otherwise have to lock and update that file. For more information, see the property DISABLEKEYUSAGECOUNTER in the section <a href="Limiting_the_number_of_signatures.html" data-linked-resource-id="370999751" data-linked-resource-version="1" data-linked-resource-type="page" data-scroll-target-source-id="370999751" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/370999751/Limiting+the+number+of+signatures" data-scroll-link-target-source-id="370999751">Limiting the number of signatures</a>.</p><div class="confluence-information-macro confluence-information-macro-warning"><span class="aui-icon aui-icon-small aui-iconfont-error confluence-information-macro-icon"></span><div class="confluence-information-macro-body"><p>Upgrading to a later version should generally be handled automatically during the first startup. Review&nbsp;<a href="Upgrade_SignServer.html" data-linked-resource-id="370999421" data-linked-resource-version="1" data-linked-resource-type="page" data-scroll-target-source-id="370999421" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/370999421/Upgrade+SignServer" data-scroll-link-target-source-id="370999421">Upgrade SignServer</a> and&nbsp;<a class="external-link scroll-external-link" href="https://docs.keyfactor.com/signserver/latest/signserver-upgrade-notes" rel="nofollow" shape="rect" data-scroll-link-type="default" data-scroll-link-target="https://docs.keyfactor.com/signserver/latest/signserver-upgrade-notes" data-scroll-link-local="false">SignServer Upgrade Notes</a> and create a backup of the file-based database files before attempting to run a later version.</p></div></div><h2 id="SignServerwithoutDatabase-Configuration" data-scroll-heading-rank="2" data-scroll-original-heading-rank="2" data-scroll-relative-heading-rank="2" class="scroll-h2 scroll-original-h2 scroll-relative-h2 scroll-custom-section-heading scroll-document-section-heading">Configuration<span class="confluence-anchor-link" id="src-370999417_SignServerwithoutDatabase-Configuration"></span></h2><p>For all steps included in installing SignServer, see <a href="Install_SignServer.html" data-linked-resource-id="370999413" data-linked-resource-version="6" data-linked-resource-type="page" data-scroll-target-source-id="370999413" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/370999413/Install+SignServer" data-scroll-link-target-source-id="370999413">Install SignServer</a>.</p><p>The following section highlights configuring deployment properties when running SignServer without a database.</p><h3 id="SignServerwithoutDatabase-DeploymentProperties" data-scroll-heading-rank="3" data-scroll-original-heading-rank="3" data-scroll-relative-heading-rank="3" class="scroll-h3 scroll-original-h3 scroll-relative-h3 scroll-custom-section-heading scroll-document-section-heading">Deployment Properties<span class="confluence-anchor-link" id="src-370999417_SignServerwithoutDatabase-Deployment-Properties"></span></h3><p>To run SignServer without a database, set&nbsp;<strong>database.name</strong> to <strong>nodb</strong> in the <code>signserver_deploy.properties </code>file:</p><div class="scroll-code scroll-highlighted-code-block" data-title-type="code" data-theme="defaultnew" style="  counter-reset: scroll-code-numbering 0;"><div class="defaultnew content">
 <div class="line"><code class="plain">database.name=nodb</code></div>
 </div>
 </div><p>Set the location for the local file-based database:</p><div class="scroll-code scroll-highlighted-code-block" data-title-type="code" data-theme="defaultnew" style="  counter-reset: scroll-code-numbering 0;"><div class="defaultnew content">
@@ -156,7 +169,7 @@
 </div><p>Ensure to specify a path to a location where SignServer can write files. The default value is empty. If a relative path is used, it is most likely relative to the application server's working directory. The directory should either point to an existing SignServer file database, or be completely empty. If the directory is empty, SignServer will create the initial database structure at startup.</p><div class="scroll-code scroll-highlighted-code-block" data-title-type="code" data-theme="defaultnew" style="  counter-reset: scroll-code-numbering 0;"><div class="defaultnew content">
 <div class="line"><code class="plain">mkdir /opt/signserver/nodb</code></div>
 </div>
-</div><h2 class="section scroll-h2 scroll-original-h2 scroll-relative-h2 scroll-custom-section-heading scroll-document-section-heading" id="SignServerwithoutDatabase-StructureofData" data-scroll-heading-rank="2" data-scroll-original-heading-rank="2" data-scroll-relative-heading-rank="2">Structure of Data</h2><p class="section">The file-based database uses a number of files in the specified directory. Read/write synchronization is handled internally in the application and it is thus not supported to manually change files while the application server is running. Generally, it is neither supported to have multiple application servers running with SignServer using the same database directory.</p><h2 id="SignServerwithoutDatabase-Migratingto/fromDatabase" data-scroll-heading-rank="2" data-scroll-original-heading-rank="2" data-scroll-relative-heading-rank="2" class="scroll-h2 scroll-original-h2 scroll-relative-h2 scroll-custom-section-heading scroll-document-section-heading">Migrating to/from Database</h2><p>When migrating either to or from another database management system, without setting up all worker configurations from scratch, it is recommended to use the admin command <code>dumpproperties</code> to dump the current configuration to a file, and then on the new system use <code>setproperties</code> followed by the <code>reload</code> command for every worker id.</p><p>Note that the <code>dumpproperties</code> command will not include the list of authorized clients and these need to be set up again in the new system. To check for authorized clients, run the admin command <code>listauthorizedclients.</code></p>
+</div><h2 id="SignServerwithoutDatabase-StructureofData" data-scroll-heading-rank="2" data-scroll-original-heading-rank="2" data-scroll-relative-heading-rank="2" class="scroll-h2 scroll-original-h2 scroll-relative-h2 scroll-custom-section-heading scroll-document-section-heading">Structure of Data<span class="confluence-anchor-link" id="src-370999417_SignServerwithoutDatabase-Structure-of-Data"></span></h2><p>The file-based database uses a number of files in the specified directory. Read/write synchronization is handled internally in the application and it is thus not supported to manually change files while the application server is running. Generally, it is neither supported to have multiple application servers running with SignServer using the same database directory.</p><h2 id="SignServerwithoutDatabase-Migratingto/fromDatabase" data-scroll-heading-rank="2" data-scroll-original-heading-rank="2" data-scroll-relative-heading-rank="2" class="scroll-h2 scroll-original-h2 scroll-relative-h2 scroll-custom-section-heading scroll-document-section-heading">Migrating to/from Database<span class="confluence-anchor-link" id="src-370999417_SignServerwithoutDatabase-Migrating-to/from-Database"></span></h2><p>When migrating either to or from another database management system, without setting up all worker configurations from scratch, it is recommended to use the admin command <code>dumpproperties</code> to dump the current configuration to a file, and then on the new system use <code>setproperties</code> followed by the <code>reload</code> command for every worker id.</p><p>Note that the <code>dumpproperties</code> command will not include the list of authorized clients and these need to be set up again in the new system. To check for authorized clients, run the admin command <code>listauthorizedclients.</code></p>
 <nav id="ht-post-nav">
         <a href="Install_SignServer.html" class="ht-post-nav-prev">
             <svg width="22px" height="22px" viewbox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
@@ -167,13 +180,13 @@
             <span>Install SignServer</span>
         </a>
 
-        <a href="Upgrade_SignServer.html" class="ht-post-nav-next">
+        <a href="Application_Server_Setup.html" class="ht-post-nav-next">
             <svg width="22px" height="22px" viewbox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
                 <g id="ht-icon-next" sketch:type="MSArtboardGroup">
                     <path fill="#000000" d="M16,8 L16,6 L6,6 L6,16 L8,16 L8,8 L16,8 Z" id="Rectangle-2" sketch:type="MSShapeGroup" transform="translate(11.000000, 11.000000) rotate(-225.000000) translate(-11.000000, -11.000000) "></path>
                 </g>
             </svg>
-            <span>Upgrade SignServer</span>
+            <span>Application Server Setup</span>
         </a>
 </nav>
                     </div>

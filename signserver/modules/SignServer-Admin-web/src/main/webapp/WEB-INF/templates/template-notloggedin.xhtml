@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='UTF-8' ?> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:ui="jakarta.faces.facelets"
+      xmlns:h="jakarta.faces.html">
 
     <ui:remove>
     <!--
@@ -25,7 +25,7 @@
 
     <h:head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <link rel="shortcut icon" type="image/png" href="/signserver/adminweb/javax.faces.resource/images/favicon.png.xhtml?ln=#{adminWebBean.theme}"/>
+        <link rel="shortcut icon" type="image/png" href="/signserver/adminweb/jakarta.faces.resource/images/favicon.png.xhtml?ln=#{adminWebBean.theme}"/>
         <h:outputStylesheet library="#{adminWebBean.theme}" name="css/default.css"/>
         <h:outputStylesheet library="#{adminWebBean.theme}" name="css/cssLayout.css"/>
         <title><ui:insert name="title">Title</ui:insert><h:outputText value=" - #{text['SignServer_Admin_Web']}"/></title>

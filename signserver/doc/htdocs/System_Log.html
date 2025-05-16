@@ -12,18 +12,31 @@
     <link rel="shortcut icon" href="_scroll_external/attachments/e415105eb31a/ssdocs">
 
     <!-- Primary Meta Tags -->
-    <meta name="exp-export-timestamp" content="2024-04-17T13:23:24.854+0000">
+    <meta name="exp-export-timestamp" content="2024-11-07T13:05:29.481+0000">
     <meta name="exp-page-id" content="371000310">
     <meta name="exp-page-title" content="System Log">
-    <meta name="exp-page-version" content="1">
+    <meta name="exp-page-version" content="2">
     <meta name="exp-page-scroll-page-id" content="fa4c0738e5bf36c55a3ec3a5900ce75f">
     <meta name="exp-page-created" content="2017-03-10T08:40:58.000+0000">
-    <meta name="exp-page-last-modified" content="2017-03-10T09:34:35.000+0000">
+    <meta name="exp-page-last-modified" content="2024-09-25T07:21:06.583+0000">
     <meta name="exp-page-labels" content="">
     <meta name="exp-page-context-keys" content="">
     <meta name="exp-space-key" content="SSDOCS">
     <meta name="exp-space-title" content="SignServer Documentation">
 
+    <!-- Additional Meta Tags -->
+    <meta name="exp-document-id" content="371111034">
+    <meta name="exp-document-title" content="SignServer Documentation">
+    <meta name="exp-version-status" content="in-progress">
+    <meta name="exp-version-id" content="8a3e757d15e64586aa644eaf0980f27a">
+    <meta name="exp-version-name" content="Working version">
+    <meta name="exp-version-description" content="">
+    <meta name="exp-version-date" content="2024-02-17T13:18:25Z">
+    <meta name="exp-variant-id" content="">
+    <meta name="exp-variant-name" content="">
+    <meta name="exp-variant-description" content="">
+    <meta name="exp-language-code" content="">
+    <meta name="exp-language-name" content="">
 
     <link rel="stylesheet" href="css/app.css">
 
@@ -80,7 +93,7 @@
 
 <header class="home-icon-container flex justify-between header hc-header-background-color hc-header-background-color ">
     <div class="header__navigation--logo">
-        <a href="SignServer_Manual.html">
+        <a href="SignServer_Documentation.html">
             <img src="_scroll_external/attachments/e415105eb31a/ssdocs" alt="SignServer Documentation" title="SignServer Documentation">
         </a>
     </div>
@@ -126,7 +139,7 @@
     <div class="breadcrumbs-wrapper">
         <ol class="breadcrumbs breadcrumbs--fit-content js-loading js-loading__stacked js-loading__stacked--breadcrumb">
                 <li class="js-hide-until-loaded">
-                    <a href="SignServer_Manual.html" rel="prev" target="_self" class="js-breadcrumbs-truncate">SignServer Manual</a>
+                    <a href="SignServer_Documentation.html" rel="prev" target="_self" class="js-breadcrumbs-truncate">SignServer Documentation</a>
                 </li>
                 <li class="js-hide-until-loaded">
                     <a href="SignServer_Reference.html" rel="prev" target="_self" class="js-breadcrumbs-truncate">SignServer Reference</a>
@@ -142,12 +155,12 @@
     </div>
 </nav>
                     <!-- CSS class article__heading is deprecated and will be removed in the future -->
-                    <h1 class="cell vp-article__heading article__heading js-loading js-loading__stacked js-loading__stacked--heading scroll-h1 scroll-original-h1 scroll-relative-h1 scroll-custom-section-heading scroll-document-section-heading" role="heading" data-scroll-heading-rank="1" data-scroll-original-heading-rank="1" data-scroll-relative-heading-rank="1" id="no-src_generated-id-431d71b7b73a5fa90ffecc9fc3cb96215a9c59c51cdc9c14fa48fed9f3ea2f78"><span class="js-hide-until-loaded">System Log</span></h1>
+                    <h1 class="cell vp-article__heading article__heading js-loading js-loading__stacked js-loading__stacked--heading scroll-h1 scroll-original-h1 scroll-relative-h1 scroll-custom-section-heading scroll-document-section-heading" role="heading" data-scroll-heading-rank="1" data-scroll-original-heading-rank="1" data-scroll-relative-heading-rank="1" id="no-src_generated-id-a2f3d87232fd5e365a22d5dde6a92ed965a00a64d165f2fcfce874dffc9b4333"><span class="js-hide-until-loaded">System Log</span></h1>
                 </header>
                 <section class="page" id="content" role="main">
                     <div id="vp-js-desktop__navigation__skip-to-navigation-target"></div>
                     <div id="main-content" class="wiki-content article__content js-tocBot-content js-hide-until-loaded">
-                        <div class="section"><div class="section"><div class="source"><p>The purpose of the system log is to log events concerning the SignServer application but not necessarily related to any signing transaction (that is covered by the Worker Log). The audit log covers key and certificate management events, status properties updates (for instance for the status of the time source) and to some extent also configuration changes. For details see the table of events below.</p><p>From version 3.4.0 SignServer uses the CESeCore library to perform audit logging.</p><h2 id="SystemLog-Availablelogevents" data-scroll-heading-rank="2" data-scroll-original-heading-rank="2" data-scroll-relative-heading-rank="2" class="scroll-h2 scroll-original-h2 scroll-relative-h2 scroll-custom-section-heading scroll-document-section-heading">Available log events</h2></div></div></div><div class="section"><div class="section"><div class="table-wrap"><table class="fixed-table wrapped confluenceTable"><colgroup span="1"><col span="1" style="width: 233.0px;"><col span="1" style="width: 1426.0px;"></colgroup><tbody><tr><th colspan="2" rowspan="1" class="confluenceTh"><p><em>Services</em></p></th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"><p><strong>SIGNSERVER_STARTUP</strong></p></td><td colspan="1" rowspan="1" class="confluenceTd"><div class="content-wrapper"><p>Logged at startup of the SignServer application.</p><p><strong>VERSION:</strong>&nbsp;The version of SignServer.</p><p>Example:</p><div class="scroll-code scroll-highlighted-code-block" data-language="xml" data-title-type="code" data-theme="defaultnew" style="  counter-reset: scroll-code-numbering 0;"><div class="defaultnew content">
+                        <div class="section"><div class="section"><div class="source"><p>The purpose of the system log is to log events concerning the SignServer application but not necessarily related to any signing transaction (that is covered by the Worker Log). The audit log covers key and certificate management events, status properties updates (for instance for the status of the time source) and to some extent also configuration changes. For details see the table of events below.</p><p>From version 3.4.0 SignServer uses the CESeCore library to perform audit logging.</p><h2 id="SystemLog-Availablelogevents" data-scroll-heading-rank="2" data-scroll-original-heading-rank="2" data-scroll-relative-heading-rank="2" class="scroll-h2 scroll-original-h2 scroll-relative-h2 scroll-custom-section-heading scroll-document-section-heading">Available log events</h2></div></div></div><div class="section"><div class="section"><div class="table-wrap"><table class="fixed-table wrapped confluenceTable"><colgroup span="1"><col span="1" style="width: 233.0px;"></colgroup><colgroup span="1"><col span="1" style="width: 1426.0px;"></colgroup><tbody><tr><th colspan="2" rowspan="1" class="confluenceTh"><p><em>Services</em></p></th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"><p><strong>SIGNSERVER_STARTUP</strong></p></td><td colspan="1" rowspan="1" class="confluenceTd"><div class="content-wrapper"><p>Logged at startup of the SignServer application.</p><p><strong>VERSION:</strong>&nbsp;The version of SignServer.</p><p>Example:</p><div class="scroll-code scroll-highlighted-code-block" data-language="xml" data-title-type="code" data-theme="defaultnew" style="  counter-reset: scroll-code-numbering 0;"><div class="defaultnew content">
 <div class="line"><code class="plain">EVENT: SIGNSERVER_STARTUP; MODULE: SERVICE; ADMINISTRATOR: null; ISSUER: null; SERIAL_NUMBER: null; WORKER_ID: null; VERSION: SignServer 3.3.0alpha12; REPLY_TIME:1350562045545</code></div>
 </div>
 </div></div></td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"><p><strong>SIGNSERVER_SHUTDOWN</strong></p></td><td colspan="1" rowspan="1" class="confluenceTd"><div class="content-wrapper"><p>Logged at shutdown of the SignServer application.</p><p><strong>VERSION:</strong>&nbsp;The version of SignServer.</p><p>Example:</p><div class="scroll-code scroll-highlighted-code-block" data-language="xml" data-title-type="code" data-theme="defaultnew" style="  counter-reset: scroll-code-numbering 0;"><div class="defaultnew content">
@@ -220,7 +233,7 @@
 <div class="line"><code class="plain">-----END CERTIFICATE----- </code></div>
 <div class="line"><code class="plain">; SCOPE: GLOBAL; REPLY_TIME:1350891906417</code></div>
 </div>
-</div><p>&nbsp;</p><p>With MODULE: KEY_MANAGEMENT the certificate chain was imported to the token:</p><p><strong>WORKER_ID:</strong>&nbsp;The ID of the worker.<br clear="none"><strong>CERTIFICATECHAIN:</strong>&nbsp;The certificates in PEM format.<br clear="none"><strong>KEYALIAS:</strong>&nbsp;The alias of the entry in the token.<br clear="none"><strong>CRYPTOTOKEN:</strong>&nbsp;Name of the configured crypto worker or the name or ID of the current worker if no separate crypto worker is used.</p><p>Example:</p><div class="scroll-code scroll-highlighted-code-block" data-language="xml" data-title-type="code" data-theme="defaultnew" style="  counter-reset: scroll-code-numbering 0;"><div class="defaultnew content">
+</div><p><br clear="none"></p><p>With MODULE: KEY_MANAGEMENT the certificate chain was imported to the token:</p><p><strong>WORKER_ID:</strong>&nbsp;The ID of the worker.<br clear="none"><strong>CERTIFICATECHAIN:</strong>&nbsp;The certificates in PEM format.<br clear="none"><strong>KEYALIAS:</strong>&nbsp;The alias of the entry in the token.<br clear="none"><strong>CRYPTOTOKEN:</strong>&nbsp;Name of the configured crypto worker or the name or ID of the current worker if no separate crypto worker is used.</p><p>Example:</p><div class="scroll-code scroll-highlighted-code-block" data-language="xml" data-title-type="code" data-theme="defaultnew" style="  counter-reset: scroll-code-numbering 0;"><div class="defaultnew content">
 <div class="line"><code class="plain">EVENT: CERTCHAININSTALLED; MODULE: KEY_MANAGEMENT; ADMINISTRATOR: CLI user; ISSUER: null; SERIAL_NUMBER: null; WORKER_ID: 5801; KEYALIAS: testkeyalias10; CRYPTOTOKEN: HSMCryptoToken1; CERTIFICATECHAIN: Subject: CN=testkeyalias10,C=SE</code></div>
 <div class="line"><code class="plain">Issuer: CN=Issuer,C=SE</code></div>
 <div class="line"><code class="plain">-----BEGIN CERTIFICATE-----</code></div>
@@ -248,7 +261,7 @@
 </div></div></td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"><p><strong>KEYSELECTED</strong></p></td><td colspan="1" rowspan="1" class="confluenceTd"><div class="content-wrapper"><p>Logged when the key-pair to use was selected by changing the value of the DEFAULTKEY worker property.</p><p><strong>WORKER_ID:</strong>&nbsp;The ID of the worker.<br clear="none"><strong>KEYALIAS:</strong>&nbsp;The new key alias.<br clear="none"><strong>CRYPTOTOKEN:</strong>&nbsp;Name of the configured crypto worker or the name or ID of the current worker if no separate crypto worker is used.<br clear="none"><strong>SCOPE:&nbsp;</strong>If the setting was at GLOBAL or NODE scope.<br clear="none"><strong>NODE:&nbsp;</strong>The ID of the node if the setting was at NODE scope, otherwise not available.</p><p>Example:</p><div class="scroll-code scroll-highlighted-code-block" data-language="xml" data-title-type="code" data-theme="defaultnew" style="  counter-reset: scroll-code-numbering 0;"><div class="defaultnew content">
 <div class="line"><code class="plain">EVENT: KEYSELECTED; MODULE: WORKER_CONFIG; ADMINISTRATOR: null; ISSUER: null; SERIAL_NUMBER: null; WORKER_ID: 100; KEYALIAS: ts_key00002; CRYPTOTOKEN: TestSigner6000; SCOPE: GLOBAL; REPLY_TIME:1350891907048</code></div>
 </div>
-</div></div></td></tr><tr><th colspan="2" rowspan="1" class="confluenceTh"><p><em>Key management</em></p></th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"><p><strong>KEYGEN</strong></p></td><td colspan="1" rowspan="1" class="confluenceTd"><div class="content-wrapper"><p>Logged when a new key-pair was generated using the built-in key generation command.</p><p><strong>WORKER_ID:</strong>&nbsp;The ID of the worker.<br clear="none"><strong>KEYALIAS:</strong>&nbsp;The new key alias.<br clear="none"><strong>CRYPTOTOKEN:</strong>&nbsp;Name of the configured crypto worker or the name or ID of the current worker if no separate crypto worker is used.<br clear="none"><strong>KEYSPEC:</strong>&nbsp;The key specification (i.e. RSA/DSA bit length or EC curve).<br clear="none"><strong>KEYALG:</strong>&nbsp;The key algorithm.</p><p>Example:</p><div class="scroll-code scroll-highlighted-code-block" data-language="xml" data-title-type="code" data-theme="defaultnew" style="  counter-reset: scroll-code-numbering 0;"><div class="defaultnew content">
+</div></div></td></tr><tr><th colspan="2" rowspan="1" class="confluenceTh"><p><em>Key management</em></p></th></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"><p><strong>KEYGEN</strong></p></td><td colspan="1" rowspan="1" class="confluenceTd"><div class="content-wrapper"><p>Logged when a new key-pair was generated using the built-in key generation command.</p><p><strong>WORKER_ID:</strong>&nbsp;The ID of the worker.<br clear="none"><strong>KEYALIAS:</strong>&nbsp;The new key alias.<br clear="none"><strong>CRYPTOTOKEN:</strong>&nbsp;Name of the configured crypto worker or the name or ID of the current worker if no separate crypto worker is used.<br clear="none"><strong>KEYSPEC:</strong> The key specification (i.e. RSA bit length or EC curve).<br clear="none"><strong>KEYALG:</strong>&nbsp;The key algorithm.</p><p>Example:</p><div class="scroll-code scroll-highlighted-code-block" data-language="xml" data-title-type="code" data-theme="defaultnew" style="  counter-reset: scroll-code-numbering 0;"><div class="defaultnew content">
 <div class="line"><code class="plain">EVENT: KEYGEN; MODULE: KEY_MANAGEMENT; ADMINISTRATOR: null; ISSUER: null; SERIAL_NUMBER: null; WORKER_ID: 5676; KEYALIAS: ts_key00004; CRYPTOTOKEN: HSMCryptoToken0; KEYSPEC: 2048; KEYALG: RSA; REPLY_TIME:135089190791</code></div>
 </div>
 </div></div></td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"><p><strong>KEYTEST</strong></p></td><td colspan="1" rowspan="1" class="confluenceTd"><div class="content-wrapper"><p>Logged when the key test command was executed and a test signing with either the specified key or all keys in the slot if that was specified.</p><p><strong>WORKER_ID:</strong>&nbsp;The ID of the worker.<br clear="none"><strong>KEYALIAS:</strong>&nbsp;Alias of the the key to test or "all" to test all available keys in the slot.<br clear="none"><strong>CRYPTOTOKEN:</strong>&nbsp;Name of the configured crypto worker or the name or ID of the current worker if no separate crypto worker is used.<br clear="none"><strong>TESTRESULTS:</strong>&nbsp;The test report with an entry for each tested key.</p><p>Example:</p><div class="scroll-code scroll-highlighted-code-block" data-language="xml" data-title-type="code" data-theme="defaultnew" style="  counter-reset: scroll-code-numbering 0;"><div class="defaultnew content">
@@ -279,7 +292,7 @@
 <div class="line"><code class="plain">EVENT: PROCESS; MODULE: WORKER; ADMINISTRATOR: null; ISSUER: null; SERIAL_NUMBER: null; WORKER_ID: null; LOG_ID: db517726-ff0d-40dd-8f2b-2297925cb4d3; CLIENT_IP: 127.0.0.1; PROCESS_SUCCESS: false; REQUEST_LENGTH: 0; XFORWARDEDFOR: null; FILENAME: noname.dat; </code></div>
 <div class="line"><code class="plain">REQUEST_FULLURL: </code><code class="comments">http://localhost:8080/signserver/process?null;</code><code class="plain"> LOG_TIME: 1350628977410; WORKER_ID: 0; EXCEPTION: No such worker: 0; REPLY_TIME:1350628977411</code></div>
 </div>
-</div></div></td></tr></tbody></table></div><p>&nbsp;</p><p>&nbsp;</p></div></div>
+</div></div></td></tr></tbody></table></div><p><br clear="none"></p><p><br clear="none"></p></div></div>
 <nav id="ht-post-nav">
         <a href="Worker_Log.html" class="ht-post-nav-prev">
             <svg width="22px" height="22px" viewbox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">

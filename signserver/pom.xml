@@ -2,7 +2,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.signserver</groupId>
     <artifactId>SignServer</artifactId>
-    <version>6.3.1.Alpha1-SNAPSHOT</version>
+    <version>7.2.0-Alpha-1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>SignServer</name>
     <properties>
@@ -17,17 +17,17 @@
         <bouncycastle.bcutil.artifact>bcutil-jdk18on</bouncycastle.bcutil.artifact>
 
         <!-- Bouncy Castle artifacts version -->
-        <bouncycastle.bcpg.artifact.version>1.78</bouncycastle.bcpg.artifact.version>
-        <bouncycastle.bcpkix.artifact.version>1.78</bouncycastle.bcpkix.artifact.version>
-        <bouncycastle.bcprov.artifact.version>1.78</bouncycastle.bcprov.artifact.version>
-        <bouncycastle.bcutil.artifact.version>1.78</bouncycastle.bcutil.artifact.version>
+        <bouncycastle.bcpg.artifact.version>1.79</bouncycastle.bcpg.artifact.version>
+        <bouncycastle.bcpkix.artifact.version>1.79</bouncycastle.bcpkix.artifact.version>
+        <bouncycastle.bcprov.artifact.version>1.79</bouncycastle.bcprov.artifact.version>
+        <bouncycastle.bcutil.artifact.version>1.79</bouncycastle.bcutil.artifact.version>
 
         <!-- Platform independent build -->
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-        <dss.framework.version>5.9</dss.framework.version>
-        <rest-assured.version>5.3.0</rest-assured.version>
+        <dss.framework.version>6.0</dss.framework.version>
+        <rest-assured.version>5.5.0</rest-assured.version>
     </properties>
 
     <profiles>
@@ -75,32 +75,24 @@
                 <type>jar</type>
             </dependency>
             <dependency>
-                <groupId>org.jitsi</groupId>
-                <artifactId>dnssecjava</artifactId>
-                <version>1.2.0</version>
-            </dependency>
-            <dependency>
                 <groupId>dnsjava</groupId>
                 <artifactId>dnsjava</artifactId>
-                <version>3.5.3</version>
+                <version>3.6.2</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-core</artifactId>
-                <version>2.17.1</version>
-                <scope>provided</scope>
+                <version>2.20.0</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-api</artifactId>
-                <version>2.17.1</version>
-                <scope>provided</scope>
+                <version>2.20.0</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.logging.log4j</groupId>
                 <artifactId>log4j-1.2-api</artifactId>
-                <version>2.17.1</version>
-                <scope>provided</scope>
+                <version>2.20.0</version>
             </dependency>
 
             <dependency>
@@ -116,7 +108,7 @@
             <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
-                <version>2.8.0</version>
+                <version>2.17.0</version>
             </dependency>
             <dependency>
                 <groupId>commons-lang</groupId>
@@ -144,9 +136,9 @@
                 <version>1.2</version> <!-- Old but latest 1.x -->
             </dependency>
             <dependency>
-                <groupId>commons-fileupload</groupId>
+                <groupId>org.signserver.commons-fileupload</groupId>
                 <artifactId>commons-fileupload</artifactId>
-                <version>1.5</version>
+                <version>1.5-signserver7.0.0</version>
             </dependency>
             <dependency>
                 <groupId>commons-cli</groupId>
@@ -174,7 +166,7 @@
             <dependency>
                 <groupId>org.apache.santuario</groupId>
                 <artifactId>xmlsec</artifactId>
-                <version>2.2.6</version>
+                <version>3.0.4</version>
             </dependency>
             <dependency>
                 <groupId>xerces</groupId>
@@ -195,14 +187,14 @@
             <dependency>
                 <groupId>jakarta.platform</groupId>
                 <artifactId>jakarta.jakartaee-api</artifactId>
-                <version>8.0.0</version>
+                <version>10.0.0</version>
                 <scope>provided</scope>
             </dependency>
 
             <dependency>
                 <groupId>jakarta.xml.bind</groupId>
                 <artifactId>jakarta.xml.bind-api</artifactId>
-                <version>2.3.3</version>
+                <version>4.0.0</version>
             </dependency>
             <dependency>
                 <groupId>com.sun.xml.bind</groupId>
@@ -212,28 +204,18 @@
             <dependency>
                 <groupId>com.sun.xml.bind</groupId>
                 <artifactId>jaxb-impl</artifactId>
-                <version>3.0.2</version>
+                <version>4.0.0</version>
             </dependency>
             <dependency>
                 <groupId>org.glassfish.jaxb</groupId>
                 <artifactId>jaxb-runtime</artifactId>
-                <version>2.3.3</version>
+                <version>4.0.0</version>
                 <scope>provided</scope>
             </dependency>
             <dependency>
                 <groupId>jakarta.xml.ws</groupId>
                 <artifactId>jakarta.xml.ws-api</artifactId>
-                <version>2.3.3</version>
-            </dependency>
-            <dependency>
-                <groupId>jakarta.jws</groupId>
-                <artifactId>jakarta.jws-api</artifactId>
-                <version>2.1.0</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sun.activation</groupId>
-                <artifactId>jakarta.activation</artifactId>
-                <version>1.2.2</version>
+                <version>4.0.0</version>
             </dependency>
             <dependency>
                 <groupId>jakarta.xml.soap</groupId>
@@ -241,14 +223,24 @@
                 <version>1.4.2</version>
             </dependency>
             <dependency>
+                <groupId>org.eclipse.angus</groupId>
+                <artifactId>angus-activation</artifactId>
+                <version>2.0.1</version>
+            </dependency>
+            <dependency>
                 <groupId>com.keyfactor</groupId>
                 <artifactId>x509-common-util</artifactId>
-                <version>0.10.5</version>
+                <version>4.1.5</version>
+            </dependency>
+            <dependency>
+                <groupId>com.keyfactor</groupId>
+                <artifactId>cryptotokens-api</artifactId>
+                <version>2.3.2</version>
             </dependency>
             <dependency>
                 <groupId>com.keyfactor.common</groupId>
                 <artifactId>p11ng</artifactId>
-                <version>0.21.9</version>
+                <version>0.25.0</version>
             </dependency>
             <dependency>
                 <groupId>com.google.guava</groupId>
@@ -259,7 +251,7 @@
             <dependency>
                 <groupId>org.ejbca.cesecore</groupId>
                 <artifactId>cesecore-entity</artifactId>
-                <version>7.0.0.1</version>
+                <version>7.0.0.1signserver7.0.0</version>
                 <exclusions>
                     <exclusion>
                         <groupId>org.bouncycastle</groupId>
@@ -275,7 +267,7 @@
             <dependency>
                 <groupId>org.ejbca.cesecore</groupId>
                 <artifactId>cesecore-common</artifactId>
-                <version>7.0.0.1signserver6.2.0</version>
+                <version>7.0.0.1signserver7.0.0</version>
                 <exclusions>
                     <exclusion>
                         <groupId>log4j</groupId>
@@ -294,7 +286,7 @@
             <dependency>
                 <groupId>org.ejbca.cesecore</groupId>
                 <artifactId>cesecore-interfaces</artifactId>
-                <version>7.0.0.1</version>
+                <version>7.0.0.1signserver7.0.0</version>
                 <exclusions>
                     <exclusion>
                         <groupId>log4j</groupId>
@@ -313,7 +305,7 @@
             <dependency>
                 <groupId>org.ejbca.cesecore</groupId>
                 <artifactId>cesecore-ejb</artifactId>
-                <version>7.0.0.1</version>
+                <version>7.0.0.1signserver7.0.0</version>
                 <exclusions>
                     <exclusion>
                         <groupId>log4j</groupId>
@@ -363,35 +355,20 @@
             </dependency>
 
             <dependency>
-                <groupId>com.googlecode.xades4j</groupId>
+                <groupId>org.signserver.xades4j</groupId>
                 <artifactId>xades4j</artifactId>
-                <version>2.0.0</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.bouncycastle</groupId>
-                        <artifactId>bcpkix-jdk15on</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.bouncycastle</groupId>
-                        <artifactId>bcprov-jdk15on</artifactId>
-                    </exclusion>
-                </exclusions>
+                <version>2.2.1-signserver7.0.0</version>
             </dependency>
             <dependency>
                 <groupId>com.google.inject</groupId>
                 <artifactId>guice</artifactId>
-                <version>5.1.0</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.inject.extensions</groupId>
-                <artifactId>guice-multibindings</artifactId>
-                <version>4.2.3</version>
+                <version>7.0.0</version>
             </dependency>
 
             <dependency>
                 <groupId>com.keyfactor</groupId>
                 <artifactId>jacknji11</artifactId>
-                <version>1.2.7</version>
+                <version>1.3.0</version>
             </dependency>
             <dependency>
             <groupId>net.java.dev.jna</groupId>
@@ -413,44 +390,44 @@
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-bindings-soap</artifactId>
-                <version>3.5.8</version>
+                <version>4.0.5</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-databinding-jaxb</artifactId>
-                <version>3.5.8</version>
+                <version>4.0.5</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-frontend-simple</artifactId>
-                <version>3.5.8</version>
+                <version>4.0.5</version>
                 <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-core</artifactId>
-                <version>3.5.8</version>
+                <version>4.0.5</version>
                 <type>jar</type>
             </dependency>
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-frontend-jaxws</artifactId>
-                <version>3.5.8</version>
+                <version>4.0.5</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-wsdl</artifactId>
-                <version>3.5.8</version>
+                <version>4.0.5</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-transports-http</artifactId>
-                <version>3.5.8</version>
+                <version>4.0.5</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.cxf</groupId>
                 <artifactId>cxf-rt-transports-http-jetty</artifactId>
-                <version>3.5.8</version>
+                <version>4.0.5</version>
             </dependency>
 	    <dependency>
             <groupId>org.codehaus.woodstox</groupId>
@@ -470,28 +447,42 @@
             <dependency>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-server</artifactId>
-                <version>9.4.51.v20230217</version>
+                <version>11.0.24</version>
             </dependency>
             <dependency>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-util</artifactId>
-                <version>9.4.51.v20230217</version>
+                <version>11.0.24</version>
             </dependency>
             <dependency>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-http</artifactId>
-                <version>9.4.54.v20240208</version>
+                <version>11.0.24</version>
             </dependency>
             <dependency>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-io</artifactId>
-                <version>9.4.51.v20230217</version>
+                <version>11.0.24</version>
             </dependency>
-
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
                 <version>4.5.14</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents.client5</groupId>
+                <artifactId>httpclient5</artifactId>
+                <version>5.3</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents.core5</groupId>
+                <artifactId>httpcore5</artifactId>
+                <version>5.2.4</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents.core5</groupId>
+                <artifactId>httpcore5-h2</artifactId>
+                <version>5.2.4</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
@@ -538,19 +529,19 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-core</artifactId>
-                <version>2.12.6</version>
+                <version>2.17.0</version>
                 <scope>runtime</scope>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <version>2.12.7.1</version>
+                <version>2.17.0</version>
                 <scope>runtime</scope>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-annotations</artifactId>
-                <version>2.12.6</version>
+                <version>2.17.0</version>
             </dependency>
             <dependency>
                 <groupId>org.signserver.apksig</groupId>
@@ -558,9 +549,15 @@
                 <version>30.0.2-signserver5-1</version>
             </dependency>
             <dependency>
-                <groupId>org.signserver.librepdf</groupId>
+                <groupId>com.github.librepdf</groupId>
                 <artifactId>openpdf</artifactId>
-                <version>1.3.30signserver6.2.0</version>
+                <version>1.3.34</version>
+            </dependency>
+
+            <dependency>
+                    <groupId>com.nimbusds</groupId>
+                    <artifactId>nimbus-jose-jwt</artifactId>
+                    <version>9.37.3</version>
             </dependency>
 
             <dependency>
@@ -580,8 +577,8 @@
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.module</groupId>
-                <artifactId>jackson-module-jaxb-annotations</artifactId>
-                <version>2.12.6</version>
+                <artifactId>jackson-module-jakarta-xmlbind-annotations</artifactId>
+                <version>2.17.0</version>
             </dependency>
             
             <dependency>
@@ -592,24 +589,14 @@
 
             <!-- DSS Framework dependencies -->
             <dependency>
-                <groupId>org.signserver.sd-dss</groupId>
+                <groupId>eu.europa.ec.joinup.sd-dss</groupId>
                 <artifactId>dss-model</artifactId>
-                <version>5.9signserver6.2.0</version>
+                <version>${dss.framework.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.signserver.sd-dss</groupId>
+                <groupId>eu.europa.ec.joinup.sd-dss</groupId>
                 <artifactId>dss-spi</artifactId>
-                <version>5.9signserver6.2.0</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.bouncycastle</groupId>
-                        <artifactId>bcpkix-jdk15on</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.bouncycastle</groupId>
-                        <artifactId>bcprov-jdk15on</artifactId>
-                    </exclusion>
-                </exclusions>
+                <version>${dss.framework.version}</version>
             </dependency>
             <dependency>
                 <groupId>eu.europa.ec.joinup.sd-dss</groupId>
@@ -632,23 +619,33 @@
                 <version>${dss.framework.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.signserver.sd-dss</groupId>
+                <groupId>eu.europa.ec.joinup.sd-dss</groupId>
                 <artifactId>dss-crl-parser</artifactId>
-                <version>5.9signserver6.2.0</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.bouncycastle</groupId>
-                        <artifactId>bcpkix-jdk15on</artifactId>
-                    </exclusion>
-                    <exclusion>
-                        <groupId>org.bouncycastle</groupId>
-                        <artifactId>bcprov-jdk15on</artifactId>
-                    </exclusion>
-                </exclusions>
+                <version>${dss.framework.version}</version>
             </dependency>
             <dependency>
                 <groupId>eu.europa.ec.joinup.sd-dss</groupId>
                 <artifactId>dss-crl-parser-x509crl</artifactId>
+                <version>${dss.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>eu.europa.ec.joinup.sd-dss</groupId>
+                <artifactId>dss-xml-common</artifactId>
+                <version>${dss.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>eu.europa.ec.joinup.sd-dss</groupId>
+                <artifactId>specs-xmldsig</artifactId>
+                <version>${dss.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>eu.europa.ec.joinup.sd-dss</groupId>
+                <artifactId>validation-policy</artifactId>
+                <version>${dss.framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>eu.europa.ec.joinup.sd-dss</groupId>
+                <artifactId>dss-xml-utils</artifactId>
                 <version>${dss.framework.version}</version>
             </dependency>
 
@@ -714,6 +711,38 @@
                 <artifactId>xml-path</artifactId>
                 <version>${rest-assured.version}</version>
             </dependency>
+            <!-- Forked dependencies original coordinates -->
+            <dependency>
+                <groupId>com.googlecode.xades4j</groupId>
+                <artifactId>xades4j</artifactId>
+                <version>2.2.1</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>1.5</version>
+            </dependency>
+            <!-- CeSeCore duplicates listed with public versions -->
+            <dependency>
+                <groupId>org.ejbca.cesecore</groupId>
+                <artifactId>cesecore-common</artifactId>
+                <version>7.0.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ejbca.cesecore</groupId>
+                <artifactId>cesecore-entity</artifactId>
+                <version>7.0.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ejbca.cesecore</groupId>
+                <artifactId>cesecore-interfaces</artifactId>
+                <version>7.0.0.1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ejbca.cesecore</groupId>
+                <artifactId>cesecore-ejb</artifactId>
+                <version>7.0.0.1</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -723,12 +752,12 @@
                 <plugin>
                     <groupId>org.signserver.deploytools</groupId>
                     <artifactId>DeployTools-Maven</artifactId>
-                    <version>2.2.1</version>
+                    <version>2.3</version>
                     <dependencies>
                         <dependency>
                             <groupId>jakarta.xml.bind</groupId>
                             <artifactId>jakarta.xml.bind-api</artifactId>
-                            <version>2.3.3</version>
+                            <version>4.0.0</version>
                         </dependency>
                     </dependencies>
                 </plugin>
@@ -789,9 +818,9 @@
                 </plugin>
 
                 <plugin>
-                    <groupId>com.helger.maven</groupId>
+                    <groupId>com.sun.xml.ws</groupId>
                     <artifactId>jaxws-maven-plugin</artifactId>
-                    <version>2.6.2</version>
+                    <version>4.0.0</version>
                 </plugin>
 
                 <plugin>

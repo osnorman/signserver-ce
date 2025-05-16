@@ -19,7 +19,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
 import java.util.Set;
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import org.apache.commons.lang.time.FastDateFormat;
 import org.apache.log4j.Logger;
 import org.quartz.CronExpression;
@@ -140,6 +140,11 @@ public abstract class BaseTimedService extends BaseWorker implements ITimedServi
         String active = config.getProperties().getProperty(ServiceConfig.SINGLETON);
 
         return active.trim().equalsIgnoreCase("TRUE");
+    }
+
+    @Override
+    public boolean requiresTransaction(final IServices services) {
+        return false;
     }
 
     @Override

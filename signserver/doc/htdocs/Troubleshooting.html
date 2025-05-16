@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="_scroll_external/attachments/e415105eb31a/ssdocs">
 
     <!-- Primary Meta Tags -->
-    <meta name="exp-export-timestamp" content="2024-04-17T13:22:31.816+0000">
+    <meta name="exp-export-timestamp" content="2024-11-07T13:04:49.425+0000">
     <meta name="exp-page-id" content="370999556">
     <meta name="exp-page-title" content="Troubleshooting">
     <meta name="exp-page-version" content="1">
@@ -24,6 +24,19 @@
     <meta name="exp-space-key" content="SSDOCS">
     <meta name="exp-space-title" content="SignServer Documentation">
 
+    <!-- Additional Meta Tags -->
+    <meta name="exp-document-id" content="371111034">
+    <meta name="exp-document-title" content="SignServer Documentation">
+    <meta name="exp-version-status" content="in-progress">
+    <meta name="exp-version-id" content="8a3e757d15e64586aa644eaf0980f27a">
+    <meta name="exp-version-name" content="Working version">
+    <meta name="exp-version-description" content="">
+    <meta name="exp-version-date" content="2024-02-17T13:18:25Z">
+    <meta name="exp-variant-id" content="">
+    <meta name="exp-variant-name" content="">
+    <meta name="exp-variant-description" content="">
+    <meta name="exp-language-code" content="">
+    <meta name="exp-language-name" content="">
 
     <link rel="stylesheet" href="css/app.css">
 
@@ -80,7 +93,7 @@
 
 <header class="home-icon-container flex justify-between header hc-header-background-color hc-header-background-color ">
     <div class="header__navigation--logo">
-        <a href="SignServer_Manual.html">
+        <a href="SignServer_Documentation.html">
             <img src="_scroll_external/attachments/e415105eb31a/ssdocs" alt="SignServer Documentation" title="SignServer Documentation">
         </a>
     </div>
@@ -126,7 +139,7 @@
     <div class="breadcrumbs-wrapper">
         <ol class="breadcrumbs breadcrumbs--fit-content js-loading js-loading__stacked js-loading__stacked--breadcrumb">
                 <li class="js-hide-until-loaded">
-                    <a href="SignServer_Manual.html" rel="prev" target="_self" class="js-breadcrumbs-truncate">SignServer Manual</a>
+                    <a href="SignServer_Documentation.html" rel="prev" target="_self" class="js-breadcrumbs-truncate">SignServer Documentation</a>
                 </li>
                 <li class="js-hide-until-loaded">
                     <a href="SignServer_Operations.html" rel="prev" target="_self" class="js-breadcrumbs-truncate">SignServer Operations</a>
@@ -139,41 +152,12 @@
     </div>
 </nav>
                     <!-- CSS class article__heading is deprecated and will be removed in the future -->
-                    <h1 class="cell vp-article__heading article__heading js-loading js-loading__stacked js-loading__stacked--heading scroll-h1 scroll-original-h1 scroll-relative-h1 scroll-custom-section-heading scroll-document-section-heading" role="heading" data-scroll-heading-rank="1" data-scroll-original-heading-rank="1" data-scroll-relative-heading-rank="1" id="no-src_generated-id-6d154e96cf046c7cd5a4962cbc829d9c9744ee7e03322459355575d6769314b1"><span class="js-hide-until-loaded">Troubleshooting</span></h1>
+                    <h1 class="cell vp-article__heading article__heading js-loading js-loading__stacked js-loading__stacked--heading scroll-h1 scroll-original-h1 scroll-relative-h1 scroll-custom-section-heading scroll-document-section-heading" role="heading" data-scroll-heading-rank="1" data-scroll-original-heading-rank="1" data-scroll-relative-heading-rank="1" id="no-src_generated-id-edcc8b0357756f4f09d8fa43f62d520c52bc31e1580095e25fca2aaeb3039b12"><span class="js-hide-until-loaded">Troubleshooting</span></h1>
                 </header>
                 <section class="page" id="content" role="main">
                     <div id="vp-js-desktop__navigation__skip-to-navigation-target"></div>
                     <div id="main-content" class="wiki-content article__content js-tocBot-content js-hide-until-loaded">
-                        <p><span style="color: rgb(0,0,0);text-decoration: none;">The following provides troubleshooting tips to help you get back on track and includes solutions or workarounds for </span><span style="color: rgb(0,0,0);text-decoration: none;">common errors.<br clear="none"></span></p><p><style type="text/css">/*<![CDATA[*/
-div.rbtoc1713360152086 {padding: 0px;}
-div.rbtoc1713360152086 ul {list-style: disc;margin-left: 0px;}
-div.rbtoc1713360152086 li {margin-left: 0px;padding-left: 0px;}
-
-/*]]>*/</style></p><div class="toc-macro rbtoc1713360152086">
-<ul class="toc-indentation">
-<li><a href="Troubleshooting.html#Troubleshooting-DebugLogging" data-scroll-target-source-id="370999556" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/370999556/Troubleshooting#src-370999556_Troubleshooting-DebugLogging" data-scroll-link-target-source-id="370999556">Debug Logging</a></li>
-<li><a href="Troubleshooting.html#Troubleshooting-GeneralIssues" data-scroll-target-source-id="370999556" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/370999556/Troubleshooting#src-370999556_Troubleshooting-GeneralIssues" data-scroll-link-target-source-id="370999556">General Issues</a>
-<ul class="toc-indentation">
-<li><a href="Troubleshooting.html#Troubleshooting-Transactionrolledbackerror" data-scroll-target-source-id="370999556" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/370999556/Troubleshooting#src-370999556_Troubleshooting-Transactionrolledbackerror" data-scroll-link-target-source-id="370999556">Transaction rolled back error</a></li>
-<li><a href="Troubleshooting.html#Troubleshooting-CKR_PIN_INCORRECT(LunaHSM)" data-scroll-target-source-id="370999556" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/370999556/Troubleshooting#src-370999556_Troubleshooting-CKR_PIN_INCORRECT(LunaHSM)" data-scroll-link-target-source-id="370999556">CKR_PIN_INCORRECT (Luna HSM)</a></li>
-<li><a href="Troubleshooting.html#Troubleshooting-SQLFeatureNotSupportedExceptionwithPostgreSQL" data-scroll-target-source-id="370999556" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/370999556/Troubleshooting#src-370999556_Troubleshooting-SQLFeatureNotSupportedExceptionwithPostgreSQL" data-scroll-link-target-source-id="370999556">SQLFeatureNotSupportedException with PostgreSQL</a></li>
-</ul>
-</li>
-<li><a href="Troubleshooting.html#Troubleshooting-P11NG/JackNJI11" data-scroll-target-source-id="370999556" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/370999556/Troubleshooting#src-370999556_Troubleshooting-P11NG/JackNJI11" data-scroll-link-target-source-id="370999556">P11NG / JackNJI11</a>
-<ul class="toc-indentation">
-<li><a href="Troubleshooting.html#Troubleshooting-UnsatisfiedLinkError" data-scroll-target-source-id="370999556" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/370999556/Troubleshooting#src-370999556_Troubleshooting-UnsatisfiedLinkError" data-scroll-link-target-source-id="370999556">UnsatisfiedLinkError</a></li>
-<li><a href="Troubleshooting.html#Troubleshooting-USER_NOT_LOGGED_INError" data-scroll-target-source-id="370999556" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/370999556/Troubleshooting#src-370999556_Troubleshooting-USER_NOT_LOGGED_INError" data-scroll-link-target-source-id="370999556">USER_NOT_LOGGED_IN Error</a></li>
-</ul>
-</li>
-<li><a href="Troubleshooting.html#Troubleshooting-SunPKCS11/PKCS11CryptoTokenandJava17" data-scroll-target-source-id="370999556" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/370999556/Troubleshooting#src-370999556_Troubleshooting-SunPKCS11/PKCS11CryptoTokenandJava17" data-scroll-link-target-source-id="370999556">SunPKCS11 / PKCS11CryptoToken and Java 17</a></li>
-<li><a href="Troubleshooting.html#Troubleshooting-SunPKCS11/PKCS11CryptoTokenandcertainJava17versions" data-scroll-target-source-id="370999556" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/370999556/Troubleshooting#src-370999556_Troubleshooting-SunPKCS11/PKCS11CryptoTokenandcertainJava17versions" data-scroll-link-target-source-id="370999556">SunPKCS11 / PKCS11CryptoToken and certain Java 17 versions</a></li>
-<li><a href="Troubleshooting.html#Troubleshooting-SignClient" data-scroll-target-source-id="370999556" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/370999556/Troubleshooting#src-370999556_Troubleshooting-SignClient" data-scroll-link-target-source-id="370999556">SignClient</a>
-<ul class="toc-indentation">
-<li><a href="Troubleshooting.html#Troubleshooting-CannotProduceCertificateVerifySignature" data-scroll-target-source-id="370999556" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/370999556/Troubleshooting#src-370999556_Troubleshooting-CannotProduceCertificateVerifySignature" data-scroll-link-target-source-id="370999556">Cannot Produce CertificateVerify Signature</a></li>
-</ul>
-</li>
-</ul>
-</div><p></p><h2 id="Troubleshooting-DebugLogging" data-scroll-heading-rank="2" data-scroll-original-heading-rank="2" data-scroll-relative-heading-rank="2" class="scroll-h2 scroll-original-h2 scroll-relative-h2 scroll-custom-section-heading scroll-document-section-heading">Debug Logging</h2><p>To troubleshoot unexpected behavior in SignServer, enable more detailed (debug) logging by running the following command in the JBoss CLI:</p><ol><li><p class="auto-cursor-target">Start JBoss CLI:</p><div class="scroll-code scroll-highlighted-code-block" data-title-type="code" data-theme="defaultnew" style="  counter-reset: scroll-code-numbering 0;"><div class="defaultnew content">
+                        <p><span style="color: rgb(0,0,0);text-decoration: none;">The following provides troubleshooting tips to help you get back on track and includes solutions or workarounds for </span><span style="color: rgb(0,0,0);text-decoration: none;">common errors.<br clear="none"></span></p><p></p><h2 id="Troubleshooting-DebugLogging" data-scroll-heading-rank="2" data-scroll-original-heading-rank="2" data-scroll-relative-heading-rank="2" class="scroll-h2 scroll-original-h2 scroll-relative-h2 scroll-custom-section-heading scroll-document-section-heading">Debug Logging</h2><p>To troubleshoot unexpected behavior in SignServer, enable more detailed (debug) logging by running the following command in the JBoss CLI:</p><ol><li><p class="auto-cursor-target">Start JBoss CLI:</p><div class="scroll-code scroll-highlighted-code-block" data-title-type="code" data-theme="defaultnew" style="  counter-reset: scroll-code-numbering 0;"><div class="defaultnew content">
 <div class="line"><code class="plain">APPSRV_HOME/bin/jboss-cli.sh -c</code></div>
 </div>
 </div></li><li><p class="auto-cursor-target">Run the following commands to enable DEBUG logging:</p><div class="scroll-code scroll-highlighted-code-block" data-title-type="code" data-theme="defaultnew" style="  counter-reset: scroll-code-numbering 0;"><div class="defaultnew content">

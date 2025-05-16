@@ -30,20 +30,11 @@ import java.security.UnrecoverableKeyException;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
-import java.security.interfaces.DSAKey;
 import java.security.interfaces.ECKey;
 import java.security.interfaces.RSAKey;
+import java.security.spec.AlgorithmParameterSpec;
 import java.security.spec.RSAKeyGenParameterSpec;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 import javax.security.auth.x500.X500Principal;
 import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.collections.PredicateUtils;
@@ -51,6 +42,7 @@ import org.apache.log4j.Logger;
 import org.bouncycastle.cert.X509v3CertificateBuilder;
 import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter;
 import org.bouncycastle.cert.jcajce.JcaX509v3CertificateBuilder;
+import org.bouncycastle.jcajce.spec.SLHDSAParameterSpec;
 import org.bouncycastle.jce.ECKeyUtil;
 import org.bouncycastle.operator.BufferingContentSigner;
 import org.bouncycastle.operator.ContentSigner;
@@ -80,6 +72,7 @@ import org.signserver.common.SignServerConstants;
 import org.signserver.common.SignServerException;
 import org.signserver.server.IServices;
 import org.signserver.server.KeyUsageCounterHash;
+import org.signserver.server.cesecore.certificates.util.AlgorithmTools;
 import org.signserver.server.entities.IKeyUsageCounterDataService;
 import org.signserver.server.entities.KeyUsageCounter;
 import static org.signserver.common.SignServerConstants.TOKEN_ENTRY_FIELDS_ALIAS;
@@ -136,7 +129,6 @@ public class CryptoTokenHelper {
     
     private static final long DEFAULT_BACKDATE = (long) 10 * 60; // 10 minutes in seconds
     private static final long DEFAULT_VALIDITY_S = (long) 30 * 24 * 60 * 60 * 365; // 30 year in seconds
-    private static final String DEFAULT_SIGNATUREALGORITHM = "SHA1withRSA"; // Legacy default
 
     public static final String PROPERTY_USE_CACHE = "USE_CACHE";
     public static final String DEFAULT_PROPERTY_USE_CACHE = "TRUE";
@@ -522,9 +514,6 @@ public class CryptoTokenHelper {
                 case "RSA":
                     alg = "SHA256withRSA";
                     break;
-                case "DSA":
-                    alg = "SHA256withDSA";
-                    break;
                 case "Ed25519":
                     alg = "Ed25519";
                     break;
@@ -537,26 +526,21 @@ public class CryptoTokenHelper {
                 case "EdDSA":
                     alg = "Ed25519";
                     break;
-                case "DILITHIUM2":
-                    alg = "Dilithium2";
-                    break;
-                case "DILITHIUM3":
-                    alg = "Dilithium3";
-                    break;
-                case "DILITHIUM5":
-                    alg = "Dilithium5";
-                    break;
                 case "LMS":
                     alg = "LMS";
                     break;
+                default:
+                    if (key.getAlgorithm().toUpperCase(Locale.ENGLISH).startsWith("SLH-DSA")){
+                        alg = "SLH-DSA";
+                    } else if (key.getAlgorithm().toUpperCase(Locale.ENGLISH).startsWith("ML-DSA")){
+                        alg = "ML-DSA";
+                }
             }
             if (alg == null) {
                 if (key instanceof ECKey) {
                     alg = "SHA256withECDSA";
                 } else if (key instanceof RSAKey) {
                     alg = "SHA256withRSA";
-                } else if (key instanceof DSAKey) {
-                    alg = "SHA256withDSA";
                 } else {
                     alg = null;
                 }
@@ -623,7 +607,17 @@ public class CryptoTokenHelper {
                                                 String provider) throws OperatorCreationException, CertificateException {
         final long currentTime = new Date().getTime();
         final Date firstDate = new Date(currentTime - backdate * 1000);
-        final Date lastDate = new Date(currentTime + validity * 1000);
+        final Date lastDate;
+
+        // If the validity is greater than the maxYear variable, which java.util.Date translates to 99991231235959, it is set to maxYear instead.
+        final long maxYear = 253402300799L;
+        if (validity > maxYear) {
+            lastDate = new Date(maxYear * 1000);
+        } else if (validity * 1000 + currentTime > maxYear * 1000) {
+            lastDate = new Date(maxYear * 1000);
+        } else {
+            lastDate = new Date(currentTime + validity * 1000);
+        }
 
         // Add all mandatory attributes
         if (LOG.isDebugEnabled()) {
@@ -919,7 +913,7 @@ public class CryptoTokenHelper {
 
         // Our default signature algorithm
         if (signatureAlgorithm == null) {
-            signatureAlgorithm = DEFAULT_SIGNATUREALGORITHM;
+            signatureAlgorithm = AlgorithmTools.getDefaultSignatureAlgorithm(keyPair.getPublic());
         }
 
         return getSelfCertificate(dn, DEFAULT_BACKDATE, validity, signatureAlgorithm, keyPair, provider);

@@ -12,19 +12,18 @@
  *************************************************************************/
 package org.signserver.ejb;
 
-import com.keyfactor.util.crypto.algorithm.AlgorithmConfigurationCache;
 import com.keyfactor.util.crypto.provider.CryptoProviderConfigurationCache;
 import com.keyfactor.util.string.StringConfigurationCache;
 import java.util.Enumeration;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
-import javax.ejb.EJB;
-import javax.ejb.EJBException;
-import javax.ejb.Singleton;
-import javax.ejb.Startup;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+import jakarta.ejb.EJB;
+import jakarta.ejb.EJBException;
+import jakarta.ejb.Singleton;
+import jakarta.ejb.Startup;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.cesecore.audit.enums.EventStatus;
@@ -158,17 +157,6 @@ public class StartupSingletonBean {
         //Register encryption key
         StringConfigurationCache.INSTANCE.setEncryptionKey(ConfigurationHolder.getString("password.encryption.key").toCharArray());
 
-        //Read if GOST3410 or DSTU4145 are defined in cesecore.properties
-        AlgorithmConfigurationCache.INSTANCE.setGost3410Enabled(ConfigurationHolder.getString("extraalgs.gost3410.oidtree") != null);
-        AlgorithmConfigurationCache.INSTANCE.setDstu4145Enabled(ConfigurationHolder.getString("extraalgs.dstu4145.oidtree") != null);
-        //Read and cache all configuration defined algorithms 
-        final List<String> configurationDefinedAlgorithms = ConfigurationHolder.getPrefixedPropertyNames("extraalgs");
-        AlgorithmConfigurationCache.INSTANCE.setConfigurationDefinedAlgorithms(configurationDefinedAlgorithms);
-        for (String algorithm : configurationDefinedAlgorithms) {
-            AlgorithmConfigurationCache.INSTANCE.addConfigurationDefinedAlgorithmTitle(algorithm,
-                    ConfigurationHolder.getString("extraalgs." + algorithm.toLowerCase() + ".title"));
-        }
-
         // pkcs11.disableHashingSignMechanisms should be true by default in SignServer
         final String disableHashingSignMechanisms = ConfigurationHolder.getString("pkcs11.disableHashingSignMechanisms");
         final boolean disableHashingSignMechanismsEnabled = StringUtils.isBlank(disableHashingSignMechanisms) || Boolean.parseBoolean(disableHashingSignMechanisms.trim());
@@ -284,7 +272,7 @@ public class StartupSingletonBean {
                         final int workerid = Integer.parseInt(splittedKey);
 
                         if (propertykey.equalsIgnoreCase(GlobalConfiguration.WORKERPROPERTY_CLASSPATH.substring(1))) {
-                            if (!workerSession.getCurrentWorkerConfig(workerid).getProperties().containsKey(WorkerConfig.IMPLEMENTATION_CLASS)) {
+                            if (!workerSession.getCurrentWorkerConfig(admin, workerid).getProperties().containsKey(WorkerConfig.IMPLEMENTATION_CLASS)) {
                                 workerSession.setWorkerProperty(admin, workerid, WorkerConfig.IMPLEMENTATION_CLASS, globalConfig.getProperty(key));
                                 LOG.info("Upgraded config for worker " + workerid);
                             } else {
@@ -295,7 +283,7 @@ public class StartupSingletonBean {
                         } else if (propertykey.equalsIgnoreCase("CRYPTOTOKEN.CLASSPATH") 
                                     || propertykey.equalsIgnoreCase("SIGNERTOKEN.CLASSPATH")) {
                             
-                            if (!workerSession.getCurrentWorkerConfig(workerid).getProperties().containsKey(WorkerConfig.CRYPTOTOKEN_IMPLEMENTATION_CLASS)) {
+                            if (!workerSession.getCurrentWorkerConfig(admin, workerid).getProperties().containsKey(WorkerConfig.CRYPTOTOKEN_IMPLEMENTATION_CLASS)) {
                                 workerSession.setWorkerProperty(admin, workerid, WorkerConfig.CRYPTOTOKEN_IMPLEMENTATION_CLASS, globalConfig.getProperty(key));
                                 LOG.info("Upgraded crypto config for worker " + workerid);
                             } else {

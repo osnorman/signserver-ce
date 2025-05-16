@@ -273,7 +273,7 @@ public class ModulesTestCase {
     private final TestUtils testUtils = new TestUtils();
     protected static Random random = new Random(1234);
 
-    private boolean useRestWorkerSession = false;
+    public boolean useRestWorkerSession = false;
 
     public ModulesTestCase() {
         final Properties defaultConfig = new Properties();
@@ -932,23 +932,23 @@ public class ModulesTestCase {
     }
 
     public void removeWorker(final int workerId) {
-         WorkerConfig wc = getWorkerSession().getCurrentWorkerConfig(workerId);
+        Properties config = getWorkerSession().exportWorkerConfig(workerId);
         
         if (useRestWorkerSession) {
             callRest(Method.DELETE, "/workers/" + workerId, new JSONObject());
         } else {
             removeGlobalProperties(workerId);
 
-            LOG.info("Got current config: " + wc.getProperties());
-            for (Object o : wc.getProperties().keySet()) {
+            LOG.info("Got current config: " + config);
+            for (Object o : config.keySet()) {
                 final String key = (String) o;
                 getWorkerSession().removeWorkerProperty(workerId, key);
             }
         }
 
         getWorkerSession().reloadConfiguration(workerId);
-        wc = getWorkerSession().getCurrentWorkerConfig(workerId);
-        LOG.info("Got current config after: " + wc.getProperties());
+        config = getWorkerSession().exportWorkerConfig(workerId);
+        LOG.info("Got current config after: " + config);
     }
 
     public File getSignServerHome() throws FileNotFoundException {
@@ -1051,6 +1051,40 @@ public class ModulesTestCase {
     public Response callRest(final Method method, final String call,
                              final JSONObject body) {
         return callRest(method, 200, "application/json", call, body);
+    }
+
+    /**
+     * Optional callRest method to call the REST api with the truststore and keystore of your choosing on Public HTTPS
+     * @param method Request method i.e. POST, PATCH, PUT etc
+     * @param statusCode What status code you expect for the repsonse
+     * @param responseContentType Content type for response
+     * @param call Endpoint to call i.e /workers/
+     * @param body Body for the request
+     * @param storeInfo HashMap containing truststore and keystore.
+     * The HashMap must contain keys that's named as follows: keyStorePath, keyStorePassword, trustStorePath, trustStorePassword
+     * @return REST Assured Response object
+     */
+    public Response callRestOnPublicHTTPS(final Method method, final int statusCode,
+                             final String responseContentType,
+                             final String call, final JSONObject body, Map<String, String> storeInfo) {
+        final String baseURL = "https://" + getHTTPHost() + ":" + getPublicHTTPSPort() + "/signserver/rest/v1";
+
+        final Response response = given()
+                .header("X-Keyfactor-Requested-With", "1")
+                .config(new RestAssuredConfig().sslConfig(new SSLConfig()
+                        .keyStore(storeInfo.get("keyStorePath"), storeInfo.get("keyStorePassword"))
+                        .trustStore(storeInfo.get("trustStorePath"), storeInfo.get("trustStorePassword"))))
+                .contentType(JSON)
+                .accept(JSON)
+                .body(body)
+                .when()
+                .request(method, baseURL + call)
+                .then()
+                .statusCode(statusCode)
+                .contentType(responseContentType)
+                .extract().response();
+
+        return response;
     }
 
     /** @return IP used by JUnit tests to access SignServer through the HTTPHost. */
@@ -1167,7 +1201,7 @@ public class ModulesTestCase {
         SignServerUtil.installBCProvider();
         HashMap<String, String> ret = new HashMap<>();
 
-        KeyPair keyPair = CryptoUtils.generateRSA(1024);
+        KeyPair keyPair = CryptoUtils.generateRSA(2048);
         X509Certificate[] chain = generateCertificateIssuedByDSSRootCA10(keyPair, "SHA256withRSA", "ModulesTestCase CN", null);
 
         KeyStore ks = KeyStore.getInstance("PKCS12");
@@ -1276,14 +1310,14 @@ public class ModulesTestCase {
     public static void removeWorkerById(final int workerId) {
         resetGlobalProperties(workerId);
         final WorkerSessionRemote workerSession = getCurrentWorkerSession();
-        final WorkerConfig wc = workerSession.getCurrentWorkerConfig(workerId);
-        LOG.info("Got current config before: " + wc.getProperties());
-        for (Object o : wc.getProperties().keySet()) {
+        final Properties config = workerSession.exportWorkerConfig(workerId);
+        LOG.info("Got current config before: " + config);
+        for (Object o : config.keySet()) {
             final String key = (String) o;
             workerSession.removeWorkerProperty(workerId, key);
         }
         workerSession.reloadConfiguration(workerId);
-        LOG.info("Got current config after: " + workerSession.getCurrentWorkerConfig(workerId).getProperties());
+        LOG.info("Got current config after: " + workerSession.exportWorkerConfig(workerId));
     }
 
     /**

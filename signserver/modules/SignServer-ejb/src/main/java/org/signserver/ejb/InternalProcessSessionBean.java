@@ -12,15 +12,15 @@
  *************************************************************************/
 package org.signserver.ejb;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.Resource;
-import javax.ejb.EJB;
-import javax.ejb.SessionContext;
-import javax.ejb.Stateless;
-import javax.ejb.TransactionAttribute;
-import javax.ejb.TransactionAttributeType;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.Resource;
+import jakarta.ejb.EJB;
+import jakarta.ejb.SessionContext;
+import jakarta.ejb.Stateless;
+import jakarta.ejb.TransactionAttribute;
+import jakarta.ejb.TransactionAttributeType;
 import javax.naming.NamingException;
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import org.apache.log4j.Logger;
 import org.cesecore.audit.log.SecurityEventsLoggerSessionLocal;
 import org.signserver.common.CryptoTokenOfflineException;
@@ -137,7 +137,7 @@ public class InternalProcessSessionBean implements InternalProcessSessionLocal {
             throws IllegalRequestException, CryptoTokenOfflineException,
             SignServerException {
         requestContext.setServices(servicesImpl);
-        if (SessionUtils.needsTransaction(workerManagerSession, wi)) {
+        if (SessionUtils.needsTransaction(workerManagerSession, wi, servicesImpl)) {
             // use separate transaction bean to avoid deadlock
             return internalProcessTransSession.processWithTransaction(adminInfo, wi, request, requestContext);
         } else {

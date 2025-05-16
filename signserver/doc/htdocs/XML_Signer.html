@@ -12,18 +12,31 @@
     <link rel="shortcut icon" href="_scroll_external/attachments/e415105eb31a/ssdocs">
 
     <!-- Primary Meta Tags -->
-    <meta name="exp-export-timestamp" content="2024-04-17T13:23:04.825+0000">
+    <meta name="exp-export-timestamp" content="2024-11-07T13:05:08.684+0000">
     <meta name="exp-page-id" content="370999958">
     <meta name="exp-page-title" content="XML Signer">
-    <meta name="exp-page-version" content="1">
+    <meta name="exp-page-version" content="2">
     <meta name="exp-page-scroll-page-id" content="72dd2ac53f1c15363554f24b368239bd">
     <meta name="exp-page-created" content="2018-01-05T15:57:54.000+0000">
-    <meta name="exp-page-last-modified" content="2018-05-23T13:32:03.000+0000">
+    <meta name="exp-page-last-modified" content="2024-09-25T07:25:53.059+0000">
     <meta name="exp-page-labels" content="document">
     <meta name="exp-page-context-keys" content="">
     <meta name="exp-space-key" content="SSDOCS">
     <meta name="exp-space-title" content="SignServer Documentation">
 
+    <!-- Additional Meta Tags -->
+    <meta name="exp-document-id" content="371111034">
+    <meta name="exp-document-title" content="SignServer Documentation">
+    <meta name="exp-version-status" content="in-progress">
+    <meta name="exp-version-id" content="8a3e757d15e64586aa644eaf0980f27a">
+    <meta name="exp-version-name" content="Working version">
+    <meta name="exp-version-description" content="">
+    <meta name="exp-version-date" content="2024-02-17T13:18:25Z">
+    <meta name="exp-variant-id" content="">
+    <meta name="exp-variant-name" content="">
+    <meta name="exp-variant-description" content="">
+    <meta name="exp-language-code" content="">
+    <meta name="exp-language-name" content="">
 
     <link rel="stylesheet" href="css/app.css">
 
@@ -80,7 +93,7 @@
 
 <header class="home-icon-container flex justify-between header hc-header-background-color hc-header-background-color ">
     <div class="header__navigation--logo">
-        <a href="SignServer_Manual.html">
+        <a href="SignServer_Documentation.html">
             <img src="_scroll_external/attachments/e415105eb31a/ssdocs" alt="SignServer Documentation" title="SignServer Documentation">
         </a>
     </div>
@@ -126,7 +139,7 @@
     <div class="breadcrumbs-wrapper">
         <ol class="breadcrumbs breadcrumbs--fit-content js-loading js-loading__stacked js-loading__stacked--breadcrumb">
                 <li class="js-hide-until-loaded">
-                    <a href="SignServer_Manual.html" rel="prev" target="_self" class="js-breadcrumbs-truncate">SignServer Manual</a>
+                    <a href="SignServer_Documentation.html" rel="prev" target="_self" class="js-breadcrumbs-truncate">SignServer Documentation</a>
                 </li>
                 <li class="js-hide-until-loaded">
                     <a href="SignServer_Reference.html" rel="prev" target="_self" class="js-breadcrumbs-truncate">SignServer Reference</a>
@@ -145,12 +158,12 @@
     </div>
 </nav>
                     <!-- CSS class article__heading is deprecated and will be removed in the future -->
-                    <h1 class="cell vp-article__heading article__heading js-loading js-loading__stacked js-loading__stacked--heading scroll-h1 scroll-original-h1 scroll-relative-h1 scroll-custom-section-heading scroll-document-section-heading" role="heading" data-scroll-heading-rank="1" data-scroll-original-heading-rank="1" data-scroll-relative-heading-rank="1" id="no-src_generated-id-1701627a7b57606c0e0ab777c0b3805ffcf03ebf410e97764e8bb566bf2799b4"><span class="js-hide-until-loaded">XML Signer</span></h1>
+                    <h1 class="cell vp-article__heading article__heading js-loading js-loading__stacked js-loading__stacked--heading scroll-h1 scroll-original-h1 scroll-relative-h1 scroll-custom-section-heading scroll-document-section-heading" role="heading" data-scroll-heading-rank="1" data-scroll-original-heading-rank="1" data-scroll-relative-heading-rank="1" id="no-src_generated-id-c5af58c697b2f8df4e8b87c0a33b471af90e8356cf91b49ef01725a0e76c971b"><span class="js-hide-until-loaded">XML Signer</span></h1>
                 </header>
                 <section class="page" id="content" role="main">
                     <div id="vp-js-desktop__navigation__skip-to-navigation-target"></div>
                     <div id="main-content" class="wiki-content article__content js-tocBot-content js-hide-until-loaded">
-                        <p>Fully qualified class name: <strong>org.signserver.module.xmlsigner.XMLSigner</strong></p><h2 id="XMLSigner-Overview" data-scroll-heading-rank="2" data-scroll-original-heading-rank="2" data-scroll-relative-heading-rank="2" class="scroll-h2 scroll-original-h2 scroll-relative-h2 scroll-custom-section-heading scroll-document-section-heading">Overview</h2><p>The XML Signer creates enveloped XML signatures using XMLDSig.</p><p>The signed XML document can be validated using the XML Validator.</p><h2 id="XMLSigner-AvailableProperties" data-scroll-heading-rank="2" data-scroll-original-heading-rank="2" data-scroll-relative-heading-rank="2" class="scroll-h2 scroll-original-h2 scroll-relative-h2 scroll-custom-section-heading scroll-document-section-heading">Available Properties</h2><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup span="1"><col span="1"><col span="1"></colgroup><thead><tr><th colspan="1" rowspan="1" class="confluenceTh"><p>Property</p></th><th colspan="1" rowspan="1" class="confluenceTh"><p>Description</p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"><p>SIGNATUREALGORITHM</p></td><td colspan="1" rowspan="1" class="confluenceTd"><p>Property specifying the algorithm used to sign the data. Default: depending on the signer's private key: SHA256withDSA for DSA keys, SHA256withRSA for RSA keys, and SHA256withECDSA for ECDSA keys.</p><p>Supported Signature Algorithms:</p><ul><li>SHA256withDSA</li><li>SHA1withRSA</li><li>SHA256withRSA</li><li>SHA384withRSA</li><li>SHA512withRSA</li><li>SHA1withECDSA</li><li>SHA256withECDSA</li><li>SHA384withECDSA</li><li>SHA512withECDSA</li></ul></td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"><p>DIGESTALGORITHM</p></td><td colspan="1" rowspan="1" class="confluenceTd"><p>Property specifying the digest algorithm. Default: depending on the signature algorithm<strong>: </strong>SHA256 for SHA256withRSA and SHA256withECDSA, SHA512 for SHA512withRSA and SHA512withECDSA.</p><p>Supported Digest Algorithms:</p><ul><li>SHA1</li><li>SHA256</li><li>SHA384</li><li>SHA512</li><li>RIPEMD160</li></ul></td></tr></tbody></table></div>
+                        <p>Fully qualified class name: <strong>org.signserver.module.xmlsigner.XMLSigner</strong></p><h2 id="XMLSigner-Overview" data-scroll-heading-rank="2" data-scroll-original-heading-rank="2" data-scroll-relative-heading-rank="2" class="scroll-h2 scroll-original-h2 scroll-relative-h2 scroll-custom-section-heading scroll-document-section-heading">Overview</h2><p>The XML Signer creates enveloped XML signatures using XMLDSig.</p><p>The signed XML document can be validated using the XML Validator.</p><h2 id="XMLSigner-AvailableProperties" data-scroll-heading-rank="2" data-scroll-original-heading-rank="2" data-scroll-relative-heading-rank="2" class="scroll-h2 scroll-original-h2 scroll-relative-h2 scroll-custom-section-heading scroll-document-section-heading">Available Properties</h2><div class="table-wrap"><table class="wrapped confluenceTable"><colgroup span="1"><col span="1"><col span="1"></colgroup><thead><tr><th colspan="1" rowspan="1" class="confluenceTh"><p>Property</p></th><th colspan="1" rowspan="1" class="confluenceTh"><p>Description</p></th></tr></thead><tbody><tr><td colspan="1" rowspan="1" class="confluenceTd"><p>SIGNATUREALGORITHM</p></td><td colspan="1" rowspan="1" class="confluenceTd"><p>Property specifying the algorithm used to sign the data. Default: depending on the signer's private key: SHA256withRSA for RSA keys, and SHA256withECDSA for ECDSA keys.</p><p>Supported Signature Algorithms:</p><ul><li>SHA1withRSA</li><li>SHA256withRSA</li><li>SHA384withRSA</li><li>SHA512withRSA</li><li>SHA1withECDSA</li><li>SHA256withECDSA</li><li>SHA384withECDSA</li><li>SHA512withECDSA</li></ul></td></tr><tr><td colspan="1" rowspan="1" class="confluenceTd"><p>DIGESTALGORITHM</p></td><td colspan="1" rowspan="1" class="confluenceTd"><p>Property specifying the digest algorithm. Default: depending on the signature algorithm<strong>: </strong>SHA256 for SHA256withRSA and SHA256withECDSA, SHA512 for SHA512withRSA and SHA512withECDSA.</p><p>Supported Digest Algorithms:</p><ul><li>SHA1</li><li>SHA256</li><li>SHA384</li><li>SHA512</li><li>RIPEMD160</li></ul></td></tr></tbody></table></div>
 <nav id="ht-post-nav">
         <a href="XAdES_Signer.html" class="ht-post-nav-prev">
             <svg width="22px" height="22px" viewbox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">

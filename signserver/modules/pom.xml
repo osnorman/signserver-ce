@@ -4,10 +4,10 @@
     <parent>
         <groupId>org.signserver</groupId>
         <artifactId>SignServer</artifactId>
-        <version>6.3.1.Alpha1-SNAPSHOT</version>
+        <version>7.2.0-Alpha-1-SNAPSHOT</version>
     </parent>
     <artifactId>SignServer-Modules</artifactId>
-    <version>6.3.1.Alpha1-SNAPSHOT</version>
+    <version>7.2.0-Alpha-1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>SignServer Modules</name>
     <properties>
@@ -149,8 +149,8 @@
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>11</source>
-                    <target>11</target>
+                    <source>17</source>
+                    <target>17</target>
                 </configuration>
             </plugin>
             <plugin>
@@ -174,7 +174,7 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <configuration>
-                        <source>11</source>
+                        <source>17</source>
                     </configuration>
                 </plugin>
             <plugin>
@@ -202,7 +202,7 @@
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
-                <version>0.8.3</version>
+                <version>0.8.7</version>
                 <executions>
                     <execution>
                         <goals>

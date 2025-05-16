@@ -12,6 +12,8 @@
  *************************************************************************/
 package org.signserver.rest.api.resource;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.Resource;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.log4j.Logger;
 import org.bouncycastle.util.encoders.DecoderException;
@@ -40,14 +42,13 @@ import org.signserver.server.log.IWorkerLogger;
 import org.signserver.server.log.LogMap;
 import org.signserver.server.log.Loggable;
 
-import javax.annotation.PostConstruct;
-import javax.ejb.EJB;
-import javax.ejb.Stateless;
-import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.*;
-import javax.ws.rs.core.Context;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import jakarta.ejb.EJB;
+import jakarta.ejb.Stateless;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.Context;
+import jakarta.ws.rs.core.MediaType;
+import jakarta.ws.rs.core.Response;
 import java.io.IOException;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.X509Certificate;
@@ -55,8 +56,7 @@ import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.nio.charset.StandardCharsets;
 import java.util.stream.Collectors;
-import javax.annotation.Resource;
-import javax.xml.ws.WebServiceContext;
+import jakarta.xml.ws.WebServiceContext;
 
 import org.eclipse.microprofile.openapi.annotations.Operation;
 import org.eclipse.microprofile.openapi.annotations.media.Content;
@@ -178,7 +178,9 @@ public class WorkerResource {
                     description = "The request",
                     required = true
             ) final WorkerRequest request) throws IllegalRequestException, AdminNotAuthorizedException {
-        checkCustomHeader(httpServletRequest);
+        // The following check must be the first line in all the REST public methods
+        final AdminInfo adminInfo = auth.restCallAuthorizer(httpServletRequest, "addWorker", String.valueOf(id));
+
         final Map<String, String> tempProperties = request.getProperties();
         if (tempProperties == null) {
             LOG.error("Properties in the request is not valid!");
@@ -194,8 +196,6 @@ public class WorkerResource {
                 throw new WorkerExistsException(workerName);
             }
         }
-        final AdminInfo adminInfo = auth.requireAdminAuthorization(getCertificate(httpServletRequest), "addWorker",
-                String.valueOf(id));
         workerSession.addWorker(adminInfo, id, properties);
         return Response.ok().status(201).build();
     }
@@ -264,7 +264,9 @@ public class WorkerResource {
                     description = "The request",
                     required = true
             ) final WorkerRequest request) throws IllegalRequestException, AdminNotAuthorizedException {
-        checkCustomHeader(httpServletRequest);
+        // The following check must be the first line in all the REST public methods
+        final AdminInfo adminInfo = auth.restCallAuthorizer(httpServletRequest, "addWorkerWithoutID");
+
         Map<String, String> tempProperties = request.getProperties();
         if (tempProperties == null) {
             LOG.error("Properties in the request is not valid!");
@@ -283,8 +285,6 @@ public class WorkerResource {
         }
 
         final int id = workerSession.genFreeWorkerId();
-        final AdminInfo adminInfo = auth.requireAdminAuthorization(getCertificate(httpServletRequest), "addWorkerWithoutID",
-                String.valueOf(id));
         workerSession.addWorker(adminInfo, id, properties);
         return Response.ok().status(201).build();
     }
@@ -347,7 +347,10 @@ public class WorkerResource {
                     description = "The request",
                     required = true
             ) final WorkerRequest request) throws IllegalRequestException, AdminNotAuthorizedException {
-        checkCustomHeader(httpServletRequest);
+        // The following check must be the first line in all the REST public methods
+        final AdminInfo adminInfo = auth.restCallAuthorizer(httpServletRequest, "updateAndDeleteWorkerProperties",
+                String.valueOf(id));
+
         Map<String, String> properties = request.getProperties();
         if (properties == null) {
             LOG.error("Properties in the request is not valid!");
@@ -369,8 +372,6 @@ public class WorkerResource {
                     properties.put(x.getKey().substring(1), x.getValue());
                     properties.remove(x.getKey());
                 });
-        final AdminInfo adminInfo = auth.requireAdminAuthorization(getCertificate(httpServletRequest), "updateAndDeleteWorkerProperties",
-                String.valueOf(id), properties.entrySet().stream().findFirst().get().getKey());
         workerSession.addUpdateDeleteWorkerProperties(adminInfo, id, properties, propertiesToRemove);
 
         return Response.ok(new WorkerResponse("Worker properties successfully updated"))
@@ -444,14 +445,15 @@ public class WorkerResource {
                     description = "The request",
                     required = true
             ) final WorkerRequest request) throws IllegalRequestException, AdminNotAuthorizedException {
-        checkCustomHeader(httpServletRequest);
+        // The following check must be the first line in all the REST public methods
+        final AdminInfo adminInfo = auth.restCallAuthorizer(httpServletRequest, "replaceAllWorkerProperties",
+                String.valueOf(id));
+
         final Map<String, String> properties = request.getProperties();
         if (properties == null) {
             LOG.error("Properties in the request is not valid!");
             throw new IllegalRequestException("Properties in the request body is not valid!");
         }
-        final AdminInfo adminInfo = auth.requireAdminAuthorization(getCertificate(httpServletRequest), "replaceAllWorkerProperties",
-                String.valueOf(id), properties.entrySet().stream().findFirst().get().getKey());
         workerSession.replaceWorkerProperties(adminInfo, id, properties);
         return Response.ok(new WorkerResponse("Worker properties successfully replaced"))
                 .header("Content-Type", MediaType.APPLICATION_JSON).build();
@@ -517,9 +519,10 @@ public class WorkerResource {
             @Context final HttpServletRequest httpServletRequest,
             @PathParam("id") final int id
     ) throws IllegalRequestException, AdminNotAuthorizedException {
-        checkCustomHeader(httpServletRequest);
-        final AdminInfo adminInfo = auth.requireAdminAuthorization(getCertificate(httpServletRequest), "removeWorker",
+        // The following check must be the first line in all the REST public methods
+        final AdminInfo adminInfo = auth.restCallAuthorizer(httpServletRequest, "removeWorker",
                 String.valueOf(id));
+
         workerSession.removeWorker(adminInfo, id);
         return Response.ok(new WorkerResponse("Worker removed successfully"))
                 .header("Content-Type", MediaType.APPLICATION_JSON).build();
@@ -588,23 +591,21 @@ public class WorkerResource {
             @RequestBody(
                     description = "The request"
             ) final ReloadRequest request) throws IllegalRequestException, AdminNotAuthorizedException {
-        checkCustomHeader(httpServletRequest);
+        // The following check must be the first line in all the REST public methods
+        final AdminInfo adminInfo = auth.restCallAuthorizer(httpServletRequest, "reload");
+
         final List<Integer> tempWorkerIDs = request.getWorkerIDs();
         if (tempWorkerIDs == null || tempWorkerIDs.isEmpty()) {
             LOG.error("There is no Worker ID to reload!");
             throw new IllegalRequestException("There is no Worker ID to reload!");
         }
         for (int workerId : tempWorkerIDs) {
-            final AdminInfo adminInfo = auth.requireAdminAuthorization(getCertificate(httpServletRequest), "reload",
-                    String.valueOf(workerId));
             if (!workerSession.isWorkerExists(adminInfo, workerId)) {
                 throw new NoSuchWorkerException(String.valueOf(workerId));
             }
         }
 
         for (int workerID : tempWorkerIDs) {
-            final AdminInfo adminInfo = auth.requireAdminAuthorization(getCertificate(httpServletRequest), "reload",
-                    String.valueOf(workerID));
             workerSession.reloadConfiguration(adminInfo, workerID);
         }
 
@@ -646,11 +647,11 @@ public class WorkerResource {
     )
     public Response reloadAll(
             @Context final HttpServletRequest httpServletRequest) throws AdminNotAuthorizedException, IllegalRequestException {
-        checkCustomHeader(httpServletRequest);
+        // The following check must be the first line in all the REST public methods
+        final AdminInfo adminInfo = auth.restCallAuthorizer(httpServletRequest, "reloadAll");
+
         List<Integer> allWorkerIDs = workerSession.getAllWorkers();
         for (int workerID : allWorkerIDs) {
-            final AdminInfo adminInfo = auth.requireAdminAuthorization(getCertificate(httpServletRequest), "reloadAll",
-                    String.valueOf(workerID));
             workerSession.reloadConfiguration(adminInfo, workerID);
         }
         return Response.ok(new WorkerResponse("All workers successfully reloaded"))
@@ -706,11 +707,8 @@ public class WorkerResource {
             @Context final HttpServletRequest httpServletRequest,
             @PathParam("id") final int id)
             throws IllegalRequestException, AdminNotAuthorizedException {
-        checkCustomHeader(httpServletRequest);
-
-        final AdminInfo adminInfo =
-                auth.requireAdminAuthorization(getCertificate(httpServletRequest),
-                                               "getConfig", String.valueOf(id));
+        // The following check must be the first line in all the REST public methods
+        final AdminInfo adminInfo = auth.restCallAuthorizer(httpServletRequest, "getConfig", String.valueOf(id));
 
         if (!workerSession.isWorkerExists(adminInfo, id)) {
             throw new NoSuchWorkerException(String.valueOf(id));
@@ -765,16 +763,13 @@ public class WorkerResource {
     public Response listWorkers(
             @Context final HttpServletRequest httpServletRequest)
             throws IllegalRequestException, AdminNotAuthorizedException {
-        checkCustomHeader(httpServletRequest);
-
-        final AdminInfo adminInfo =
-                auth.requireAdminAuthorization(getCertificate(httpServletRequest),
-                                               "listWorkers");
+        // The following check must be the first line in all the REST public methods
+        auth.restCallAuthorizer(httpServletRequest, "listWorkers");
 
         final List<ListWorkersResponse.Worker> workers = new ArrayList<>();
         
         for (final int id : workerSession.getAllWorkers()) {
-            final WorkerConfig config = workerSession.getCurrentWorkerConfig(id);
+            final Properties config = workerSession.exportWorkerConfig(id);
             final String name = config.getProperty("NAME");
             final ListWorkersResponse.Worker worker =
                     new ListWorkersResponse.Worker(id, name);
@@ -986,7 +981,7 @@ public class WorkerResource {
     }
 
     private X509Certificate getClientCertificate(HttpServletRequest httpServletRequest) {
-        X509Certificate[] certificates = (X509Certificate[]) httpServletRequest.getAttribute("javax.servlet.request.X509Certificate");
+        X509Certificate[] certificates = (X509Certificate[]) httpServletRequest.getAttribute("jakarta.servlet.request.X509Certificate");
 
         if (certificates != null) {
             return certificates[0];
@@ -1080,20 +1075,4 @@ public class WorkerResource {
         return workerSession.getAllWorkerNames().contains(workerName);
     }
 
-    private X509Certificate getCertificate(HttpServletRequest httpServletRequest) throws AdminNotAuthorizedException {
-        final X509Certificate certificates = getClientCertificate(httpServletRequest);
-        if (certificates == null) {
-            throw new AdminNotAuthorizedException(
-                    "Admin not authorized to resource. "
-                    + "Client certificate authentication required.");
-        }
-        return certificates;
-    }
-
-    private void checkCustomHeader(HttpServletRequest httpServletRequest) throws ForbiddenException {
-        if (httpServletRequest.getHeader("X-Keyfactor-Requested-With") == null) {
-            LOG.error("Missing required hedear X-Keyfactor-Requested-With");
-            throw new ForbiddenException();
-        }
-    }
 }

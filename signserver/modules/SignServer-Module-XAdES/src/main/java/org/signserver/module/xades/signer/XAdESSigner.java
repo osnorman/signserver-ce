@@ -22,7 +22,7 @@ import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
-import javax.persistence.EntityManager;
+import jakarta.persistence.EntityManager;
 import javax.xml.crypto.dsig.SignatureMethod;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -478,8 +478,6 @@ public class XAdESSigner extends BaseSigner {
             sigAlg = sigAlg.withSignatureAlgorithm("RSA", SignatureMethod.RSA_SHA384);
         } else if ("SHA512withRSA".equals(signatureAlgorithm)) {
             sigAlg = sigAlg.withSignatureAlgorithm("RSA", SignatureMethod.RSA_SHA512);
-        } else if ("SHA1withDSA".equals(signatureAlgorithm)) {
-            sigAlg = sigAlg.withSignatureAlgorithm("DSA", SignatureMethod.DSA_SHA1);
         } else if ("SHA1withECDSA".equals(signatureAlgorithm)) {
             sigAlg = sigAlg.withSignatureAlgorithm("EC", SignatureMethod.ECDSA_SHA1);
         } else if ("SHA256withECDSA".equals(signatureAlgorithm)) {

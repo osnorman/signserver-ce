@@ -34,7 +34,7 @@ import java.util.ResourceBundle;
 import java.util.ServiceConfigurationError;
 import java.util.ServiceLoader;
 import java.util.concurrent.TimeUnit;
-import javax.xml.ws.soap.SOAPFaultException;
+import jakarta.xml.ws.soap.SOAPFaultException;
 import org.apache.commons.cli.*;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
@@ -805,7 +805,7 @@ public class SignDocumentCommand extends AbstractCommand implements ConsolePassw
                 final long startTime = System.nanoTime();
                 
                 // Perform pre-request if used by the handler
-                final InputSource preInputSource = handler.producePreRequestInput();
+                final InputSource preInputSource = handler.producePreRequestInput(digestAlgorithm);
                 if (preInputSource != null) {
                     final OutputStream os = new ByteArrayOutputStream();
                     sign(preInputSource, os, signerFactory, handler, requestContext);

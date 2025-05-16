@@ -12,7 +12,7 @@
     <link rel="shortcut icon" href="_scroll_external/attachments/e415105eb31a/ssdocs">
 
     <!-- Primary Meta Tags -->
-    <meta name="exp-export-timestamp" content="2024-04-17T13:23:39.013+0000">
+    <meta name="exp-export-timestamp" content="2024-11-07T13:05:45.120+0000">
     <meta name="exp-page-id" content="371000723">
     <meta name="exp-page-title" content="Internationalization">
     <meta name="exp-page-version" content="1">
@@ -24,6 +24,19 @@
     <meta name="exp-space-key" content="SSDOCS">
     <meta name="exp-space-title" content="SignServer Documentation">
 
+    <!-- Additional Meta Tags -->
+    <meta name="exp-document-id" content="371111034">
+    <meta name="exp-document-title" content="SignServer Documentation">
+    <meta name="exp-version-status" content="in-progress">
+    <meta name="exp-version-id" content="8a3e757d15e64586aa644eaf0980f27a">
+    <meta name="exp-version-name" content="Working version">
+    <meta name="exp-version-description" content="">
+    <meta name="exp-version-date" content="2024-02-17T13:18:25Z">
+    <meta name="exp-variant-id" content="">
+    <meta name="exp-variant-name" content="">
+    <meta name="exp-variant-description" content="">
+    <meta name="exp-language-code" content="">
+    <meta name="exp-language-name" content="">
 
     <link rel="stylesheet" href="css/app.css">
 
@@ -80,7 +93,7 @@
 
 <header class="home-icon-container flex justify-between header hc-header-background-color hc-header-background-color ">
     <div class="header__navigation--logo">
-        <a href="SignServer_Manual.html">
+        <a href="SignServer_Documentation.html">
             <img src="_scroll_external/attachments/e415105eb31a/ssdocs" alt="SignServer Documentation" title="SignServer Documentation">
         </a>
     </div>
@@ -126,7 +139,7 @@
     <div class="breadcrumbs-wrapper">
         <ol class="breadcrumbs breadcrumbs--fit-content js-loading js-loading__stacked js-loading__stacked--breadcrumb">
                 <li class="js-hide-until-loaded">
-                    <a href="SignServer_Manual.html" rel="prev" target="_self" class="js-breadcrumbs-truncate">SignServer Manual</a>
+                    <a href="SignServer_Documentation.html" rel="prev" target="_self" class="js-breadcrumbs-truncate">SignServer Documentation</a>
                 </li>
                 <li class="js-hide-until-loaded">
                     <a href="SignServer_Reference.html" rel="prev" target="_self" class="js-breadcrumbs-truncate">SignServer Reference</a>
@@ -139,12 +152,12 @@
     </div>
 </nav>
                     <!-- CSS class article__heading is deprecated and will be removed in the future -->
-                    <h1 class="cell vp-article__heading article__heading js-loading js-loading__stacked js-loading__stacked--heading scroll-h1 scroll-original-h1 scroll-relative-h1 scroll-custom-section-heading scroll-document-section-heading" role="heading" data-scroll-heading-rank="1" data-scroll-original-heading-rank="1" data-scroll-relative-heading-rank="1" id="no-src_generated-id-42d1c28dffd830d3819b4518af3f8bf5972165745c73f92744078ec2491759f3"><span class="js-hide-until-loaded">Internationalization</span></h1>
+                    <h1 class="cell vp-article__heading article__heading js-loading js-loading__stacked js-loading__stacked--heading scroll-h1 scroll-original-h1 scroll-relative-h1 scroll-custom-section-heading scroll-document-section-heading" role="heading" data-scroll-heading-rank="1" data-scroll-original-heading-rank="1" data-scroll-relative-heading-rank="1" id="no-src_generated-id-4c36b63e7a5de2d6375909b8164c318c4e984fdc0a77ae0f3c0e0a8a253540d3"><span class="js-hide-until-loaded">Internationalization</span></h1>
                 </header>
                 <section class="page" id="content" role="main">
                     <div id="vp-js-desktop__navigation__skip-to-navigation-target"></div>
                     <div id="main-content" class="wiki-content article__content js-tocBot-content js-hide-until-loaded">
-                        <p>The <a href="Administration_Web.html" data-linked-resource-id="371000514" data-linked-resource-version="2" data-linked-resource-type="page" data-scroll-target-source-id="371000514" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/371000514/Administration+Web" data-scroll-link-target-source-id="371000514">AdminWeb</a> supports different languages. Currently English, Swedish and Vietnamese are supported.</p><h2 id="Internationalization-TranslationProcess" data-scroll-heading-rank="2" data-scroll-original-heading-rank="2" data-scroll-relative-heading-rank="2" class="scroll-h2 scroll-original-h2 scroll-relative-h2 scroll-custom-section-heading scroll-document-section-heading">Translation Process</h2><p>The process of translating SignServer into a new language could be like the following:</p><ol><li>Copy the latest language file for the English language <strong>languagefile.properties</strong> to a new file in the same location but with the language code of the new language, for example "ut" for Utopian: <strong>languagefile_ut.properties</strong></li><li><p>Edit <strong>faces-config.xml</strong> and make sure the new language code is listed as an available language:</p><div class="scroll-code scroll-highlighted-code-block" data-language="xml" data-title-type="code" data-theme="defaultnew" style="  counter-reset: scroll-code-numbering 0;"><div class="defaultnew content">
+                        <p>The <a href="Administration_Web.html" data-linked-resource-id="371000514" data-linked-resource-version="3" data-linked-resource-type="page" data-scroll-target-source-id="371000514" class=" scroll-document-link" data-scroll-link-type="document" data-scroll-link-target="https://keyfactor.atlassian.net/wiki/spaces/SSDOCS/pages/371000514/Administration+Web" data-scroll-link-target-source-id="371000514">AdminWeb</a> supports different languages. Currently English, Swedish and Vietnamese are supported.</p><h2 id="Internationalization-TranslationProcess" data-scroll-heading-rank="2" data-scroll-original-heading-rank="2" data-scroll-relative-heading-rank="2" class="scroll-h2 scroll-original-h2 scroll-relative-h2 scroll-custom-section-heading scroll-document-section-heading">Translation Process</h2><p>The process of translating SignServer into a new language could be like the following:</p><ol><li>Copy the latest language file for the English language <strong>languagefile.properties</strong> to a new file in the same location but with the language code of the new language, for example "ut" for Utopian: <strong>languagefile_ut.properties</strong></li><li><p>Edit <strong>faces-config.xml</strong> and make sure the new language code is listed as an available language:</p><div class="scroll-code scroll-highlighted-code-block" data-language="xml" data-title-type="code" data-theme="defaultnew" style="  counter-reset: scroll-code-numbering 0;"><div class="defaultnew content">
 <div class="line"><code class="plain">&lt;</code><code class="keyword">application</code><code class="plain">&gt;</code></div>
 <div class="line"><code class="plain">   &lt;</code><code class="keyword">locale</code><code class="plain">-config&gt;</code></div>
 <div class="line"><code class="plain">      &lt;</code><code class="keyword">default</code><code class="plain">-locale&gt;en&lt;/</code><code class="keyword">default</code><code class="plain">-locale&gt;</code></div>
@@ -154,13 +167,13 @@
 </div>
 </div></li><li>Update the relevant information in the beginning of <strong>languagefile_ut.properties</strong> and fill in the name of the new language in the <strong>LANGUAGE_ENGLISHNAME</strong> and <strong>LANGUAGE_NATIVENAME</strong> properties.</li><li>Translate each property into the new language.<br clear="none">Note that the property file must be in ASCII or ISO-8859-1 format.<br clear="none">A Java Properties file editor can be used to edit the file so that non-ascii characters are stored in escaped form.<br clear="none">An alternative is to use the Java command native2ascii to convert the file to and from the operating systems native encoding and ASCII. That way the file could be edited for instance using UTF-8 and then at the end converted to ASCII with escaping.</li><li>Build SignServer if the changes were made in the sources and then deploy or simply deploy if the changes where made in the binary (i.e. .war file) distribution.</li><li>Test SignServer with a web browser (or operating system) configured to prefer the new language code and make sure that all pages are translated.</li></ol><h2 id="Internationalization-FileLocationsintheSources" data-scroll-heading-rank="2" data-scroll-original-heading-rank="2" data-scroll-relative-heading-rank="2" class="scroll-h2 scroll-original-h2 scroll-relative-h2 scroll-custom-section-heading scroll-document-section-heading">File Locations in the Sources</h2><ul><li>modules/mod-enterprise/SignServer-Admin-web/src/main/resources/org/signserver/admin/web/languagefile.properties</li><li>modules/mod-enterprise/SignServer-Admin-web/src/main/webapp/WEB-INF/faces-config.xml</li></ul><h2 id="Internationalization-FileLocationsinBinaryDistribution" data-scroll-heading-rank="2" data-scroll-original-heading-rank="2" data-scroll-relative-heading-rank="2" class="scroll-h2 scroll-original-h2 scroll-relative-h2 scroll-custom-section-heading scroll-document-section-heading">File Locations in Binary Distribution</h2><ul><li>Inside lib/SignServer-Admin-web-x.y.z.war: /WEB-INF/classes/org/signserver/admin/web/languagefile.properties</li><li>Inside lib/SignServer-Admin-web-x.y.z.war: /WEB-INF/faces-config.xml</li></ul>
 <nav id="ht-post-nav">
-        <a href="Database_CLI.html" class="ht-post-nav-prev">
+        <a href="Administration_CLI.html" class="ht-post-nav-prev">
             <svg width="22px" height="22px" viewbox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
                 <g id="ht-icon-prev" sketch:type="MSArtboardGroup">
                     <path fill="#000000" d="M16,8 L16,6 L6,6 L6,16 L8,16 L8,8 L16,8 Z" id="Rectangle-2" sketch:type="MSShapeGroup" transform="translate(11.000000, 11.000000) rotate(-45.000000) translate(-11.000000, -11.000000) "></path>
                 </g>
             </svg>
-            <span>Database CLI</span>
+            <span>Administration CLI</span>
         </a>
 
         <a href="Peer_Systems.html" class="ht-post-nav-next">

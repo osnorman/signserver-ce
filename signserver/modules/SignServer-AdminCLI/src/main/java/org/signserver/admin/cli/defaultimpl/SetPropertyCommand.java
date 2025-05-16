@@ -74,7 +74,7 @@ public class SetPropertyCommand extends AbstractAdminCommand {
             return 0;
 
         } catch (Exception e) {
-            if ("java.lang.ClassNotFoundException: javax.persistence.PersistenceException".equals(e.getMessage())) {
+            if ("java.lang.ClassNotFoundException: jakarta.persistence.PersistenceException".equals(e.getMessage())) {
                 throw new CommandFailureException("Persistence failure. Check that the worker name does not already exist.");
             } else {
                 throw new UnexpectedCommandFailureException(e);
@@ -90,7 +90,13 @@ public class SetPropertyCommand extends AbstractAdminCommand {
     }
 
     private void setWorkerProperty(int workerId, String propertykey, String propertyvalue) throws RemoteException {
-        this.getOutputStream().println("Setting the property " + propertykey + " to " + propertyvalue + " for worker " + workerId + "\n");
+        final SetPropertiesHelper helper =
+                    new SetPropertiesHelper(getOutputStream(), getConfiguration());
+        final String value =
+                helper.shouldMaskProperty(propertykey) ? 
+                SetPropertiesHelper.WORKER_PROPERTY_MASK_PLACEHOLDER :
+                propertyvalue;
+        this.getOutputStream().println("Setting the property " + propertykey + " to " + value + " for worker " + workerId + "\n");
         this.getOutputStream().println("See current configuration with the getconfig command, activate it with the reload command");
 
         getWorkerSession().setWorkerProperty(workerId, propertykey, propertyvalue);
